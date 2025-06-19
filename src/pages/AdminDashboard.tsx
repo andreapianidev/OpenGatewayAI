@@ -9,6 +9,11 @@ import CommissionSettings from '../components/admin/CommissionSettings';
 import ReportsAnalytics from '../components/admin/ReportsAnalytics';
 import SystemSettings from '../components/admin/SystemSettings';
 import AISettings from '../components/admin/AISettings';
+import AIAnalytics from '../components/ai/AIAnalytics';
+import FraudDetection from '../components/ai/FraudDetection';
+import RealTimeMonitoring from '../components/ai/RealTimeMonitoring';
+import PredictiveAnalytics from '../components/ai/PredictiveAnalytics';
+import MerchantLocationsPage from './MerchantLocationsPage';
 
 const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -29,6 +34,11 @@ const AdminDashboard: React.FC = () => {
             <Route path="/reports" element={<ReportsAnalytics />} />
             <Route path="/settings" element={<SystemSettings />} />
             <Route path="/ai-settings" element={<AISettings />} />
+            <Route path="/ai-analytics" element={<AIAnalytics />} />
+            <Route path="/fraud-detection" element={<FraudDetection />} />
+            <Route path="/real-time-monitoring" element={<RealTimeMonitoring />} />
+            <Route path="/predictive-analytics" element={<PredictiveAnalytics />} />
+            <Route path="/merchant-locations" element={<MerchantLocationsPage />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>
         </main>

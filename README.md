@@ -4,7 +4,7 @@
 
 ## 📊 Admin Dashboard Preview
 
-![Admin Dashboard](./assets/admin-dashboard-preview.png)
+![Admin Dashboard](https://opengatewayai.andreapiani.com/home1.png)
 
 *Dashboard amministrativa completa con AI integrata, metriche in tempo reale e gestione POS*
 

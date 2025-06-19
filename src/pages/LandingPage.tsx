@@ -111,7 +111,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
             <div className="bg-white rounded-xl p-4 shadow-2xl">
               <img 
-                src="/admin-dashboard-preview.svg" 
+                src="https://opengatewayai.andreapiani.com/home1.png" 
                 alt="Dashboard Admin Preview" 
                 className="w-full h-auto rounded-lg"
               />

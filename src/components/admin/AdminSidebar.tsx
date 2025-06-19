@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { X, Home, Users, CreditCard, Settings, BarChart3, Percent, LogOut, Monitor, Wifi, AlertTriangle, Brain, Shield, TrendingUp, Activity } from 'lucide-react';
+import { X, Home, Users, CreditCard, Settings, BarChart3, Percent, LogOut, Monitor, Wifi, AlertTriangle, Brain, Shield, TrendingUp, Activity, MapPin } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface AdminSidebarProps {
@@ -15,20 +15,21 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
   const { logout } = useAuth();
 
   const navigation = [
-    { name: t('navigation.dashboard'), href: '/admin', icon: Home },
-    { name: t('merchants.merchantManagement'), href: '/admin/merchants', icon: Users },
-    { name: t('navigation.transactions'), href: '/admin/transactions', icon: CreditCard },
-    { name: t('navigation.commissions'), href: '/admin/commissions', icon: Percent },
-    { name: t('navigation.reportsAnalytics'), href: '/admin/reports', icon: BarChart3 },
-    { name: t('navigation.settings'), href: '/admin/settings', icon: Settings },
-    { name: t('navigation.aiSettings'), href: '/admin/ai-settings', icon: Brain },
+    { name: t('navigation.dashboard'), href: '', icon: Home },
+    { name: t('merchants.merchantManagement'), href: 'merchants', icon: Users },
+    { name: t('navigation.transactions'), href: 'transactions', icon: CreditCard },
+    { name: t('navigation.commissions'), href: 'commissions', icon: Percent },
+    { name: t('navigation.reportsAnalytics'), href: 'reports', icon: BarChart3 },
+    { name: t('navigation.settings'), href: 'settings', icon: Settings },
+    { name: t('navigation.aiSettings'), href: 'ai-settings', icon: Brain },
   ];
 
   const isActive = (href: string) => {
-    if (href === '/admin') {
-      return location.pathname === '/admin';
+    // For the dashboard link, we want an exact match
+    if (href === '') {
+      return location.pathname === '/admin' || location.pathname === '/admin/';
     }
-    return location.pathname.startsWith(href);
+    return location.pathname.startsWith(`/admin/${href}`);
   };
 
   return (
@@ -112,9 +113,9 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             </div>
             
             <Link
-              to="/admin/ai-analytics"
+              to="ai-analytics"
               className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                isActive('/admin/ai-analytics')
+                isActive('ai-analytics')
                   ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               }`}
@@ -125,9 +126,9 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             </Link>
             
             <Link
-              to="/admin/fraud-detection"
+              to="fraud-detection"
               className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                isActive('/admin/fraud-detection')
+                isActive('fraud-detection')
                   ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               }`}
@@ -138,9 +139,9 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             </Link>
             
             <Link
-              to="/admin/real-time-monitoring"
+              to="real-time-monitoring"
               className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                isActive('/admin/real-time-monitoring')
+                isActive('real-time-monitoring')
                   ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               }`}
@@ -151,9 +152,9 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             </Link>
             
             <Link
-              to="/admin/predictive-analytics"
+              to="predictive-analytics"
               className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                isActive('/admin/predictive-analytics')
+                isActive('predictive-analytics')
                   ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               }`}
@@ -161,6 +162,19 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             >
               <TrendingUp className="w-5 h-5 mr-3" />
               Predictive Analytics
+            </Link>
+            
+            <Link
+              to="merchant-locations"
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                isActive('merchant-locations')
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+              onClick={() => onClose()}
+            >
+              <MapPin className="w-5 h-5 mr-3" />
+              Merchant Locations
             </Link>
           </div>
         </nav>
