@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, memo } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, ComposedChart, ScatterChart, Scatter, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 import { TrendingUp, Brain, Target, Calendar, DollarSign, Users, ShoppingCart, AlertCircle, CheckCircle, Clock, Zap, BarChart3, PieChart as PieChartIcon, Activity, Settings, Download, RefreshCw, Play, Pause, Layers, GitBranch, Sliders, TrendingDown, Eye, Filter, Share2 } from 'lucide-react';
 
@@ -86,7 +86,7 @@ interface ModelComparison {
   predictionSpeed: number;
 }
 
-const PredictiveAnalytics: React.FC = () => {
+const PredictiveAnalytics: React.FC = memo(() => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('30d');
   const [selectedModel, setSelectedModel] = useState('revenue');
   const [isLoading, setIsLoading] = useState(false);
@@ -1066,6 +1066,8 @@ const PredictiveAnalytics: React.FC = () => {
       )}
     </div>
   );
-};
+});
+
+PredictiveAnalytics.displayName = 'PredictiveAnalytics';
 
 export default PredictiveAnalytics;

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TrendingUp, Users, CreditCard, DollarSign, ArrowUpRight, ArrowDownRight, MapPin, Shield, Activity, Brain, AlertTriangle, CheckCircle } from 'lucide-react';
+import { TrendingUp, Users, CreditCard, DollarSign, ArrowUpRight, ArrowDownRight, MapPin, Shield, CheckCircle } from 'lucide-react';
 import StatsCard from '../shared/StatsCard';
 import TransactionChart from '../charts/TransactionChart';
 import RevenueChart from '../charts/RevenueChart';
@@ -45,11 +45,7 @@ const AdminOverview: React.FC = () => {
     }
   ];
 
-  const [aiInsights, setAiInsights] = useState([
-    { type: 'success', message: 'Revenue increased by 15% this week', icon: TrendingUp },
-    { type: 'warning', message: '3 suspicious transactions detected', icon: AlertTriangle },
-    { type: 'info', message: 'Peak hours: 14:00-16:00 today', icon: Activity }
-  ]);
+
 
   const [poiData, setPoiData] = useState([
     { 
@@ -135,19 +131,7 @@ const AdminOverview: React.FC = () => {
     { name: 'Pharmacy Torino', volume: '€28,670', transactions: 734, growth: '+5%', aiScore: 85 }
   ];
 
-  useEffect(() => {
-    // Simulate real-time AI insights updates
-    const interval = setInterval(() => {
-      const newInsight = {
-        type: Math.random() > 0.5 ? 'info' : 'success',
-        message: `AI detected ${Math.floor(Math.random() * 50)} new opportunities`,
-        icon: Brain
-      };
-      setAiInsights(prev => [newInsight, ...prev.slice(0, 2)]);
-    }, 30000);
 
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="p-4 sm:p-6 space-y-6 sm:space-y-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
@@ -176,42 +160,8 @@ const AdminOverview: React.FC = () => {
         ))}
       </div>
 
-      {/* AI Insights Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-        {/* OpenPay AI Insights */}
-        <div className="lg:col-span-2 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/30 p-4 sm:p-6 hover:shadow-2xl transition-all duration-300">
-          <div className="flex items-center mb-4">
-            <Brain className="w-6 h-6 text-purple-600 mr-3" />
-            <h3 className="text-lg sm:text-xl font-bold text-gray-800">🤖 OpenPay AI Insights</h3>
-            <span className="ml-auto bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">Live</span>
-          </div>
-          <div className="space-y-3">
-            {aiInsights.map((insight, index) => {
-              const IconComponent = insight.icon;
-              return (
-                <div key={index} className={`p-3 rounded-lg border-l-4 ${
-                  insight.type === 'success' ? 'bg-green-50 border-green-400' :
-                  insight.type === 'warning' ? 'bg-yellow-50 border-yellow-400' :
-                  'bg-blue-50 border-blue-400'
-                }`}>
-                  <div className="flex items-center">
-                    <IconComponent className={`w-5 h-5 mr-3 ${
-                      insight.type === 'success' ? 'text-green-600' :
-                      insight.type === 'warning' ? 'text-yellow-600' :
-                      'text-blue-600'
-                    }`} />
-                    <p className="text-sm font-medium text-gray-800">{insight.message}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="mt-4 p-3 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg border border-purple-200">
-            <p className="text-sm text-purple-700">💡 <strong>AI Recommendation:</strong> Consider promoting mobile payments during peak hours (14:00-16:00) to increase conversion rates by an estimated 12%.</p>
-          </div>
-        </div>
-
-        {/* POI Map */}
+      {/* POI Map Section */}
+      <div className="w-full">
         <POIMap locations={poiData} />
       </div>
 

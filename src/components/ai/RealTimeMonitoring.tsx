@@ -253,8 +253,28 @@ const RealTimeMonitoring: React.FC = () => {
       a.download = `monitoring-data-${new Date().toISOString().split('T')[0]}.json`;
       a.click();
     } else {
-      // CSV export logic would go here
-      console.log('CSV export not implemented yet');
+      // CSV export implementation
+      const csvData = [
+        ['Timestamp', 'CPU Usage', 'Memory Usage', 'Network I/O', 'Disk I/O', 'Active Transactions', 'Response Time'],
+        ...performanceHistory.map(item => [
+          new Date(item.timestamp).toISOString(),
+          item.cpu.toString(),
+          item.memory.toString(),
+          item.network.toString(),
+          item.disk.toString(),
+          item.transactions.toString(),
+          item.responseTime.toString()
+        ])
+      ];
+      
+      const csvContent = csvData.map(row => row.join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `monitoring-data-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
     }
   }, [systemMetrics, performanceHistory, transactions, alerts, geographicData]);
 

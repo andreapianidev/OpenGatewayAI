@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Search, Filter, Plus, Eye, Edit, Trash2, MoreHorizontal, Building, Mail, Phone, MapPin, Calendar, DollarSign, User } from 'lucide-react';
 import DashboardAIWidget from '../ai/DashboardAIWidget';
@@ -248,19 +248,19 @@ const MerchantManagement: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
           <h3 className="text-lg font-semibold mb-2">{t('merchant.activeMerchants')}</h3>
-          <p className="text-3xl font-bold">{merchants.filter(m => m.status === 'active').length}</p>
+          <p className="text-3xl font-bold">{useMemo(() => merchants.filter(m => m.status === 'active').length, [merchants])}</p>
         </div>
         <div className="bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl p-6 text-white">
           <h3 className="text-lg font-semibold mb-2">{t('merchant.pendingRequests')}</h3>
-          <p className="text-3xl font-bold">{merchants.filter(m => m.status === 'pending').length}</p>
+          <p className="text-3xl font-bold">{useMemo(() => merchants.filter(m => m.status === 'pending').length, [merchants])}</p>
         </div>
         <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 text-white">
           <h3 className="text-lg font-semibold mb-2">{t('merchant.totalVolume')}</h3>
-          <p className="text-3xl font-bold">€{merchants.reduce((sum, m) => sum + m.monthlyVolume, 0).toLocaleString()}</p>
+          <p className="text-3xl font-bold">€{useMemo(() => merchants.reduce((sum, m) => sum + m.monthlyVolume, 0), [merchants]).toLocaleString()}</p>
         </div>
         <div className="bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl p-6 text-white">
           <h3 className="text-lg font-semibold mb-2">{t('merchant.averageCommission')}</h3>
-          <p className="text-3xl font-bold">{(merchants.reduce((sum, m) => sum + m.commission, 0) / merchants.length).toFixed(1)}%</p>
+          <p className="text-3xl font-bold">{useMemo(() => (merchants.reduce((sum, m) => sum + m.commission, 0) / merchants.length).toFixed(1), [merchants])}%</p>
         </div>
       </div>
     </div>

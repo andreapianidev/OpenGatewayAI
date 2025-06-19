@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 const RealTimePerformanceChart: React.FC = () => {
   const data = [
@@ -18,11 +18,13 @@ const RealTimePerformanceChart: React.FC = () => {
   const chartWidth = width - padding * 2;
   const chartHeight = height - padding * 2;
 
-  // Calculate scales for different metrics
-  const maxTransactions = Math.max(...data.map(d => d.transactions));
-  const maxResponseTime = Math.max(...data.map(d => d.responseTime));
-  const minSuccessRate = Math.min(...data.map(d => d.successRate));
-  const maxSuccessRate = Math.max(...data.map(d => d.successRate));
+  // Calculate scales for different metrics (memoized for performance)
+  const { maxTransactions, maxResponseTime, minSuccessRate, maxSuccessRate } = useMemo(() => ({
+    maxTransactions: Math.max(...data.map(d => d.transactions)),
+    maxResponseTime: Math.max(...data.map(d => d.responseTime)),
+    minSuccessRate: Math.min(...data.map(d => d.successRate)),
+    maxSuccessRate: Math.max(...data.map(d => d.successRate))
+  }), [data]);
 
   // Grid lines
   const gridLines = [];

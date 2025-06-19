@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Plus, Send, Copy, QrCode, Link, Calendar } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Search, Filter, Download, Plus, Eye, Copy, ExternalLink, Calendar, DollarSign, Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { generatePaymentUrl } from '../../config/urls';
 
 const PaymentRequests: React.FC = () => {
   const [showCreateForm, setShowCreateForm] = useState(false);
@@ -31,7 +32,7 @@ const PaymentRequests: React.FC = () => {
       status: 'pending',
       createdAt: '2024-01-15 10:30:00',
       expiresAt: '2024-01-22 10:30:00',
-      paymentLink: 'https://pay.opengateway.ai/req/PAY_REQ_001'
+      paymentLink: generatePaymentUrl('PAY_REQ_001')
     },
     {
       id: 'PAY_REQ_002',
@@ -41,7 +42,7 @@ const PaymentRequests: React.FC = () => {
       status: 'paid',
       createdAt: '2024-01-14 15:45:00',
       paidAt: '2024-01-14 16:20:00',
-      paymentLink: 'https://pay.opengateway.ai/req/PAY_REQ_002'
+      paymentLink: generatePaymentUrl('PAY_REQ_002')
     },
     {
       id: 'PAY_REQ_003',
@@ -51,7 +52,7 @@ const PaymentRequests: React.FC = () => {
       status: 'expired',
       createdAt: '2024-01-05 09:15:00',
       expiresAt: '2024-01-12 09:15:00',
-      paymentLink: 'https://pay.opengateway.ai/req/PAY_REQ_003'
+      paymentLink: generatePaymentUrl('PAY_REQ_003')
     },
     {
       id: 'PAY_REQ_004',
@@ -61,7 +62,7 @@ const PaymentRequests: React.FC = () => {
       status: 'pending',
       createdAt: '2024-01-13 12:00:00',
       expiresAt: '2024-01-20 12:00:00',
-      paymentLink: 'https://pay.opengateway.ai/req/PAY_REQ_004'
+      paymentLink: generatePaymentUrl('PAY_REQ_004')
     }
   ];
 
@@ -120,8 +121,8 @@ const PaymentRequests: React.FC = () => {
     showSimulatedNotification(`📱 Codice QR generato per la richiesta ${requestId}`);
   };
 
-  const totalPending = paymentRequests.filter(req => req.status === 'pending').reduce((sum, req) => sum + req.amount, 0);
-  const totalPaid = paymentRequests.filter(req => req.status === 'paid').reduce((sum, req) => sum + req.amount, 0);
+  const totalPending = useMemo(() => paymentRequests.filter(req => req.status === 'pending').reduce((sum, req) => sum + req.amount, 0), [paymentRequests]);
+  const totalPaid = useMemo(() => paymentRequests.filter(req => req.status === 'paid').reduce((sum, req) => sum + req.amount, 0), [paymentRequests]);
 
   return (
     <div className="p-6 space-y-6">
@@ -176,18 +177,18 @@ const PaymentRequests: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <h3 className="text-sm font-medium text-gray-500 mb-2">Richieste Attive</h3>
-          <p className="text-2xl font-bold text-yellow-600">{paymentRequests.filter(req => req.status === 'pending').length}</p>
+          <p className="text-2xl font-bold text-yellow-600">{useMemo(() => paymentRequests.filter(req => req.status === 'pending').length, [paymentRequests])}</p>
           <p className="text-sm text-gray-500 mt-1">€{totalPending.toFixed(2)} in attesa</p>
         </div>
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <h3 className="text-sm font-medium text-gray-500 mb-2">Pagamenti Ricevuti</h3>
           <p className="text-2xl font-bold text-green-600">€{totalPaid.toFixed(2)}</p>
-          <p className="text-sm text-gray-500 mt-1">{paymentRequests.filter(req => req.status === 'paid').length} transazioni</p>
+          <p className="text-sm text-gray-500 mt-1">{useMemo(() => paymentRequests.filter(req => req.status === 'paid').length, [paymentRequests])} transazioni</p>
         </div>
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
           <h3 className="text-sm font-medium text-gray-500 mb-2">Tasso di Conversione</h3>
           <p className="text-2xl font-bold text-indigo-600">
-            {((paymentRequests.filter(req => req.status === 'paid').length / paymentRequests.length) * 100).toFixed(1)}%
+            {useMemo(() => ((paymentRequests.filter(req => req.status === 'paid').length / paymentRequests.length) * 100).toFixed(1), [paymentRequests])}%
           </p>
           <p className="text-sm text-gray-500 mt-1">Richieste pagate</p>
         </div>

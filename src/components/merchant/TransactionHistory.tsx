@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Search, Filter, Download, Eye, Calendar, CreditCard, CheckCircle, Clock, XCircle, TrendingUp, DollarSign } from 'lucide-react';
 import DashboardAIWidget from '../ai/DashboardAIWidget';
@@ -156,9 +156,9 @@ const TransactionHistory: React.FC = () => {
     }
   };
 
-  const totalAmount = filteredTransactions.reduce((sum, t) => sum + t.amount, 0);
-  const totalFees = filteredTransactions.reduce((sum, t) => sum + t.fee, 0);
-  const totalNet = filteredTransactions.reduce((sum, t) => sum + t.net, 0);
+  const totalAmount = useMemo(() => filteredTransactions.reduce((sum, t) => sum + t.amount, 0), [filteredTransactions]);
+  const totalFees = useMemo(() => filteredTransactions.reduce((sum, t) => sum + t.fee, 0), [filteredTransactions]);
+  const totalNet = useMemo(() => filteredTransactions.reduce((sum, t) => sum + t.net, 0), [filteredTransactions]);
 
   return (
     <div className="p-6 space-y-6">

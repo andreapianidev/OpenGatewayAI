@@ -126,7 +126,7 @@ const POIMap: React.FC<POIMapProps> = ({ locations }) => {
           <div className="flex items-center justify-center mb-1">
             <TrendingUp className="w-4 h-4 text-purple-600" />
           </div>
-          <p className="text-lg font-bold text-purple-600">€{(totalRevenue / activeLocations.length).toFixed(0)}</p>
+          <p className="text-lg font-bold text-purple-600">€{activeLocations.length > 0 ? (totalRevenue / activeLocations.length).toFixed(0) : '0'}</p>
           <p className="text-xs text-gray-600">Avg Revenue</p>
         </div>
       </div>

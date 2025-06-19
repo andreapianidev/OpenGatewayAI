@@ -116,9 +116,11 @@ const SupportTickets: React.FC = () => {
   const handleCreateTicket = (e: React.FormEvent) => {
     e.preventDefault();
     // Here would be the API call to create the ticket
-    console.log('Creating ticket:', newTicket);
+    // TODO: Implement proper logging service
     setShowCreateForm(false);
     setNewTicket({ subject: '', category: 'technical', priority: 'medium', description: '' });
+    // Show success notification
+    alert('Ticket creato con successo!');
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, ComposedChart } from 'recharts';
 import { TrendingUp, TrendingDown, DollarSign, Users, CreditCard, AlertTriangle, Brain, Target, Zap, Activity, Download, Settings, Bell, Filter, RefreshCw, Calendar, BarChart3, PieChart as PieChartIcon, Share2, Bookmark } from 'lucide-react';
 

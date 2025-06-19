@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Settings, Shield, Bell, Globe, Database, Key, Users, Mail, Save, RefreshCw } from 'lucide-react';
+import { SITE_CONFIG, WEBHOOKS } from '../../config/urls';
 
 interface SettingsSection {
   id: string;
@@ -14,9 +15,9 @@ const AdminSettings: React.FC = () => {
   const [activeSection, setActiveSection] = useState('general');
   const [settings, setSettings] = useState({
     general: {
-      siteName: 'OpenGateway AI',
-      siteUrl: 'https://opengatewayai.com',
-      adminEmail: 'admin@opengatewayai.com',
+      siteName: SITE_CONFIG.NAME,
+      siteUrl: SITE_CONFIG.URL,
+      adminEmail: SITE_CONFIG.ADMIN_EMAIL,
       timezone: 'Europe/Rome',
       language: 'it',
       maintenanceMode: false
@@ -90,14 +91,15 @@ const AdminSettings: React.FC = () => {
 
   const handleSave = () => {
     // Simulate save operation
-    console.log('Settings saved:', settings);
+    // TODO: Implement proper logging service
     alert('Impostazioni salvate con successo!');
   };
 
   const handleReset = () => {
     if (confirm('Sei sicuro di voler ripristinare le impostazioni predefinite?')) {
       // Reset to default values
-      console.log('Settings reset to defaults');
+      // TODO: Implement proper logging service
+      alert('Impostazioni ripristinate ai valori predefiniti!');
     }
   };
 
@@ -309,7 +311,7 @@ const AdminSettings: React.FC = () => {
               ...prev,
               api: { ...prev.api, webhookUrl: e.target.value }
             }))}
-            placeholder="https://your-webhook-url.com/webhook"
+            placeholder={WEBHOOKS.BASE}
           />
         </div>
       </div>

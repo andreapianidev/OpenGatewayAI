@@ -1,0 +1,374 @@
+{
+  "totalFiles": 57,
+  "averageScore": 98,
+  "totalIssues": 13,
+  "results": [
+    {
+      "fileName": "src/App.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/LanguageSelector.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ProtectedRoute.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/AISettings.tsx",
+      "score": 90,
+      "issues": [
+        "10 hardcoded URL(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/admin/AdminDashboard.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/AdminHeader.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/AdminOverview.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/AdminSettings.tsx",
+      "score": 80,
+      "issues": [
+        "2 console.log statement(s) found",
+        "2 hardcoded URL(s) found"
+      ],
+      "issueCount": 2
+    },
+    {
+      "fileName": "src/components/admin/AdminSidebar.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/CommissionManagement.tsx",
+      "score": 90,
+      "issues": [
+        "2 'any' type(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/admin/CommissionSettings.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/MerchantManagement.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/POIMap.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/ReportsAnalytics.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/admin/SystemSettings.tsx",
+      "score": 90,
+      "issues": [
+        "4 hardcoded URL(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/admin/TransactionManagement.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ai/AIAnalytics.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ai/AIInsightsSummary.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ai/DashboardAIWidget.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ai/FraudDetection.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ai/PredictiveAnalytics.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/ai/RealTimeMonitoring.tsx",
+      "score": 90,
+      "issues": [
+        "1 console.log statement(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/charts/CommissionAnalysisChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/FraudDetectionChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/GeographicChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/MerchantPerformanceChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/PaymentMethodBreakdownChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/PaymentMethodsChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/RealTimePerformanceChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/RevenueChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/TransactionChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/TransactionErrorAnalysisChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/charts/TransactionVolumeChart.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/merchant/AccountSettings.tsx",
+      "score": 90,
+      "issues": [
+        "5 hardcoded URL(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/merchant/MerchantHeader.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/merchant/MerchantOverview.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/merchant/MerchantSidebar.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/merchant/PaymentRequests.tsx",
+      "score": 90,
+      "issues": [
+        "4 hardcoded URL(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/merchant/SupportTickets.tsx",
+      "score": 90,
+      "issues": [
+        "1 console.log statement(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/merchant/TransactionHistory.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/components/security/SecurityHeaders.tsx",
+      "score": 90,
+      "issues": [
+        "8 hardcoded URL(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/components/shared/StatsCard.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/contexts/AuthContext.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/hooks/useSecureForm.ts",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/i18n/index.ts",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/main.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/pages/AdminDashboard.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/pages/AndroidPreview.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/pages/LandingPage.tsx",
+      "score": 90,
+      "issues": [
+        "1 hardcoded URL(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/pages/LoginPage.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/pages/MerchantDashboard.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/pages/MerchantLocationsPage.tsx",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/utils/apiSecurity.ts",
+      "score": 90,
+      "issues": [
+        "5 'any' type(s) found"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/utils/codeAnalysis.ts",
+      "score": 90,
+      "issues": [
+        "Interface 'names' should use PascalCase"
+      ],
+      "issueCount": 1
+    },
+    {
+      "fileName": "src/utils/inputValidation.ts",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/utils/secureStorage.ts",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    },
+    {
+      "fileName": "src/vite-env.d.ts",
+      "score": 100,
+      "issues": [],
+      "issueCount": 0
+    }
+  ]
+}
