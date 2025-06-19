@@ -444,5 +444,60 @@
     "transactionHistoryDesc": "Cronologia completa delle tue transazioni",
     "configureAccount": "Configura account",
     "technicalSupport": "Assistenza tecnica"
+  },
+  "landing": {
+    "title": "Gateway Pagamenti",
+    "subtitle": "with Integrated AI",
+    "description": "Open Source Payment Gateway with AI-powered analytics and fraud detection. Backend sicuro, dashboard avanzate, integrazione con processori bancari locali.",
+    "accessDemo": "Accedi alla Demo",
+    "androidPreview": "Anteprima Android POS",
+    "proprietaryBackend": "Backend Proprietario",
+    "proprietaryBackendDesc": "Revolutionary payment processing platform with integrated AI capabilities, ready for PCI-DSS certification and global POS integration.",
+    "advancedSecurity": "Sicurezza TLS 1.2+ e crittografia avanzata",
+    "completeAudit": "Audit log completo per compliance",
+    "merchantManagement": "Gestione Merchant",
+    "merchantManagementDesc": "Controllo completo su onboarding esercenti, commissioni personalizzate e monitoraggio transazioni in tempo reale.",
+    "advancedDashboard": "Dashboard amministrativa avanzata",
+    "dynamicFeeEngine": "Fee engine dinamico",
+    "dashboardTitle": "Dashboard Amministrativa",
+    "dashboardDescription": "Interfaccia completa per la gestione del gateway di pagamento con AI integrata"
+  },
+  "androidPreview": {
+    "title": "Anteprima Android POS",
+    "backToHome": "Torna alla Home",
+    "posHeader": "OpenGatewayAI POS",
+    "paymentTerminal": "Terminale di Pagamento",
+    "amount": "Importo",
+    "paymentMethod": "Metodo di Pagamento",
+    "card": "Carta",
+    "contactless": "Contactless",
+    "pay": "Paga",
+    "processing": "Elaborazione...",
+    "paymentCompleted": "Pagamento Completato!",
+    "transactionId": "ID Transazione",
+    "method": "Metodo",
+    "creditCard": "Carta di Credito",
+    "terminalId": "ID Terminale",
+    "merchant": "Esercente",
+    "connection": "Connessione",
+    "online": "Online",
+    "simulationLabel": "Simulazione Android POS",
+    "featuresTitle": "Caratteristiche del POS Android",
+    "mainFeatures": "Funzionalità Principali",
+    "techSpecs": "Specifiche Tecniche",
+    "features": {
+      "cardPayments": "Pagamenti con carta di credito/debito",
+      "contactlessSupport": "Supporto contactless (NFC)",
+      "touchInterface": "Interfaccia touch intuitiva",
+      "secureConnection": "Connessione sicura al gateway",
+      "digitalReceipts": "Ricevute digitali"
+    },
+    "specs": {
+      "androidCompatible": "Android 8.0+ compatibile",
+      "endToEndEncryption": "Crittografia end-to-end",
+      "offlineMode": "Modalità offline disponibile",
+      "autoUpdates": "Aggiornamenti automatici",
+      "multiLanguage": "Supporto multi-lingua"
+    }
   }
 }

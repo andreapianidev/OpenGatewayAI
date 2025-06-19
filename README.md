@@ -2,170 +2,36 @@
 
 ![OpenGatewayAI](./assets/opengateway-ai-banner.svg)
 
+## 📊 Admin Dashboard Preview
+
+![Admin Dashboard](./assets/admin-dashboard-preview.png)
+
+*Dashboard amministrativa completa con AI integrata, metriche in tempo reale e gestione POS*
+
 ## 🌟 Overview
 
-OpenGatewayAI is the world's first open-source payment gateway frontend with integrated artificial intelligence. Built with modern technologies and designed for scalability, it provides a comprehensive solution for payment processing with AI-powered insights and fraud detection.
+OpenGatewayAI is the world's first open-source payment gateway frontend with integrated artificial intelligence. Built with modern technologies and designed for scalability, it provides a comprehensive solution for payment processing with **OpenPay AI** - an intelligent consultant that provides contextual advice for both merchants and administrators.
 
 **Created by Andrea Piani** - A revolutionary approach to payment gateway management.
 
 🌐 **Live Demo**: [opengatewayai.andreapiani.com](https://opengatewayai.andreapiani.com)
 
-📖 **Open Source**: This project is completely open source and available for the community to explore, contribute, and learn from. The frontend code is freely available under the MIT license, promoting innovation and collaboration in the fintech space.
+## 🤖 OpenPay AI Features
 
-## 🎯 Key Features
+**OpenPay AI** is your intelligent payment consultant that provides:
 
-- 🤖 **AI-Powered Analytics**: Real-time fraud detection and transaction optimization
-- 🌍 **Multi-language Support**: Arabic, English, and Italian localization
-- 📊 **Advanced Dashboard**: Comprehensive analytics and reporting
-- 🔒 **Security First**: Enterprise-grade security with PCI-DSS compliance
-- 📱 **Responsive Design**: Works seamlessly on all devices
-- ⚡ **Real-time Processing**: Instant transaction processing and notifications
-- 🎨 **Modern UI/UX**: Clean, intuitive interface built with Tailwind CSS
-
-## 🛠️ Technology Stack
-
-### Frontend (Open Source)
-- **React 18** with TypeScript for type-safe development
-- **Vite** for lightning-fast development and building
-- **Tailwind CSS** for modern, responsive styling
-- **React Router** for seamless navigation
-- **Lucide React** for beautiful, consistent icons
-- **i18next** for internationalization
-- **Chart.js** for data visualization
-
-### Backend (Available on Commission)
-- **Node.js** with Express.js or **Python** with FastAPI
-- **PostgreSQL** or **MongoDB** for data persistence
-- **Redis** for caching and session management
-- **Docker** for containerization
-- **Kubernetes** for orchestration
-- **AI/ML Integration** with TensorFlow or PyTorch
-
-## 🏗️ Project Structure
-
-```
-OpenGatewayAI/
-├── src/
-│   ├── components/          # Reusable UI components
-│   │   ├── admin/          # Admin-specific components
-│   │   ├── merchant/       # Merchant-specific components
-│   │   ├── ai/            # AI-powered components
-│   │   ├── charts/        # Data visualization components
-│   │   └── shared/        # Shared components
-│   ├── pages/             # Main application pages
-│   │   ├── AdminDashboard.tsx
-│   │   ├── MerchantDashboard.tsx
-│   │   ├── LoginPage.tsx
-│   │   └── LandingPage.tsx
-│   ├── contexts/          # React contexts for state management
-│   ├── i18n/             # Internationalization files
-│   │   └── locales/      # Translation files (ar, en, it)
-│   └── assets/           # Static assets and images
-├── public/               # Public assets
-└── docs/                # Documentation
-```
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 18+ and npm/yarn
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/OpenGatewayAI.git
-   cd OpenGatewayAI
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:5173`
-
-### Demo Credentials
-
-**Admin Panel:**
-- Email: `admin@opengateway.ai`
-- Password: `admin123`
-
-**Merchant Panel:**
-- Email: `merchant@opengateway.ai`
-- Password: `merchant123`
-
-## 💼 Business Model
-
-### Open Source Frontend
-The frontend is completely open source and free to use. This includes:
-- Complete UI/UX components
-- Dashboard and analytics views
-- Multi-language support
-- Basic integrations
-
-### Custom Backend Development
-We offer **professional backend development services** on commission:
-
-- 🏦 **Payment Processing Engine**: Complete transaction processing system
-- 🤖 **AI Integration**: Custom machine learning models for fraud detection
-- 🔌 **POS Integration**: Connect with any Point of Sale system
-- 🌐 **API Development**: RESTful and GraphQL APIs
-- 🔒 **Security Implementation**: PCI-DSS compliance and encryption
-- ☁️ **Cloud Deployment**: AWS, Azure, or Google Cloud setup
-- 📊 **Analytics Engine**: Real-time reporting and business intelligence
-
-### POS Integration Support
-We can integrate OpenGatewayAI with:
-- Traditional POS terminals
-- Mobile POS solutions
-- E-commerce platforms
-- Custom hardware solutions
-- Legacy banking systems
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact & Support
-
-**Andrea Piani** - Creator & Lead Developer
-- 📧 Email: [andrea@opengateway.ai](mailto:andrea@opengateway.ai)
-- 💼 LinkedIn: [Andrea Piani](https://linkedin.com/in/andrea-piani)
-- 🐙 GitHub: [@andreapiani](https://github.com/andreapiani)
-
-### Custom Backend Development
-Interested in a custom backend solution? Contact us for:
-- Free consultation
-- Custom quotes
-- Technical specifications
-- Integration planning
+- **🧠 Smart Analytics**: AI-powered insights and predictive analytics
+- **🛡️ Advanced Fraud Detection**: Real-time transaction monitoring and risk assessment
+- **📊 Intelligent Reporting**: Automated report generation with actionable insights
+- **🎯 Personalized Recommendations**: Contextual advice for merchants and administrators
+- **⚡ Real-time Monitoring**: Live transaction analysis and anomaly detection
+- **🗺️ Geographic Intelligence**: POI mapping with merchant location analytics
 
 ## 🌟 Why Choose OpenGatewayAI?
 
 - **Proven Technology**: Built with industry-standard tools and practices
-- **AI-First Approach**: Leverage artificial intelligence for better business decisions
+- **AI-First Approach**: Leverage OpenPay AI for better business decisions
+- **Advanced Security**: Multi-layer fraud detection and prevention
 - **Scalable Architecture**: Grows with your business needs
 - **Expert Support**: Professional development team available
 - **Cost-Effective**: Open source frontend reduces development costs
@@ -177,7 +43,7 @@ Interested in a custom backend solution? Contact us for:
 
 🚀 **Ready to revolutionize your payment processing?** Contact us today!
 
-An open-source payment gateway frontend with integrated AI, built with React, TypeScript and Tailwind CSS.
+An open-source payment gateway frontend with integrated OpenPay AI, built with React, TypeScript and Tailwind CSS.
 
 ## 📋 Overview
 
@@ -256,28 +122,42 @@ The application uses a mock authentication system with two roles:
 
 ## 🎯 Key Features
 
+### 🤖 OpenPay AI Intelligence
+- 🧠 **AI Analytics**: Advanced machine learning insights and predictions
+- 🛡️ **Fraud Detection**: Real-time AI-powered fraud prevention system
+- 📊 **Predictive Analytics**: Future trend analysis and forecasting
+- ⚡ **Real-time Monitoring**: Live transaction analysis with anomaly detection
+- 🎯 **Smart Recommendations**: Contextual advice for merchants and admins
+- 🗺️ **POI Mapping**: Geographic merchant location intelligence
+
 ### 👨‍💼 Admin Dashboard
-- 📊 **Overview**: System-wide statistics and insights
-- 🏪 **Merchant Management**: CRUD operations for merchants and configurations
-- 💳 **Transaction Management**: Monitor and manage all transactions
-- 💰 **Commission Settings**: Configure fees and commission structures
-- 📈 **Reports & Analytics**: Detailed charts and business intelligence
-- ⚙️ **System Settings**: Global system configurations
+- 📊 **AI-Enhanced Overview**: System-wide statistics with OpenPay AI insights
+- 🏪 **Merchant Management**: CRUD operations with AI risk scoring
+- 💳 **Transaction Management**: Monitor transactions with AI fraud detection
+- 💰 **Commission Settings**: AI-optimized fee structures
+- 📈 **Advanced Analytics**: AI-powered reports and business intelligence
+- 🛡️ **Security Center**: Multi-layer fraud prevention dashboard
+- 🗺️ **Merchant Network Map**: Interactive POI mapping with analytics
+- ⚙️ **System Settings**: Global configurations with AI recommendations
 
 ### 🏪 Merchant Dashboard
-- 📊 **Overview**: Personal merchant statistics and KPIs
-- 📋 **Transaction History**: View and filter transaction records
-- 💸 **Payment Requests**: Create and manage payment requests
-- ⚙️ **Account Settings**: Personal account configurations
-- 🎫 **Support Tickets**: Integrated support system
+- 📊 **Smart Overview**: Personal KPIs enhanced with OpenPay AI insights
+- 📋 **Transaction History**: AI-categorized transaction records
+- 💸 **Payment Requests**: Smart payment request creation
+- 🛡️ **Fraud Alerts**: Real-time security notifications
+- 📈 **Performance Insights**: AI-driven business recommendations
+- ⚙️ **Account Settings**: Personalized configurations
+- 🎫 **AI Support**: Intelligent support system
 
-### 📊 Chart Components
-- 📈 **Revenue Chart**: Revenue trends and analytics
-- 🔍 **Fraud Detection**: AI-powered fraud detection insights
-- 🌍 **Geographic Chart**: Geographic transaction distribution
-- 📊 **Merchant Performance**: Individual merchant performance metrics
-- 💳 **Payment Methods**: Payment method usage statistics
-- 📉 **Transaction Chart**: Transaction volume and trends
+### 📊 Advanced Chart Components
+- 📈 **Revenue Chart**: AI-enhanced revenue trends and forecasting
+- 🔍 **Fraud Detection Dashboard**: Real-time fraud analysis with risk scoring
+- 🧠 **Predictive Analytics**: Machine learning predictions and insights
+- 🌍 **Geographic Intelligence**: AI-powered location analytics
+- 📊 **Merchant Performance**: AI-scored performance metrics
+- 💳 **Payment Methods**: Smart payment optimization insights
+- 📉 **Transaction Analysis**: AI-enhanced transaction monitoring
+- 🗺️ **POI Network Map**: Interactive merchant location mapping
 
 ## 🛠️ Setup & Installation
 

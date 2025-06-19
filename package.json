@@ -9,7 +9,14 @@
     "type": "git",
     "url": "https://github.com/andreapiani/opengateway-ai.git"
   },
-  "keywords": ["payment-gateway", "ai", "fintech", "pos", "react", "typescript"],
+  "keywords": [
+    "payment-gateway",
+    "ai",
+    "fintech",
+    "pos",
+    "react",
+    "typescript"
+  ],
   "private": false,
   "type": "module",
   "scripts": {
@@ -28,7 +35,8 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.5.3",
-    "react-router-dom": "^6.20.1"
+    "react-router-dom": "^6.20.1",
+    "recharts": "^2.15.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",

@@ -1,0 +1,162 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1f5f9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="600" fill="#1e293b" rx="0"/>
+  
+  <!-- Logo Area -->
+  <rect x="20" y="20" width="160" height="60" fill="#334155" rx="8"/>
+  <text x="100" y="45" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">OpenGateway</text>
+  <text x="100" y="60" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="10">AI Dashboard</text>
+  
+  <!-- Navigation Items -->
+  <rect x="20" y="100" width="160" height="40" fill="#3b82f6" rx="6"/>
+  <circle cx="40" cy="120" r="6" fill="#ffffff"/>
+  <text x="55" y="125" fill="#ffffff" font-family="Arial, sans-serif" font-size="12">Dashboard</text>
+  
+  <rect x="20" y="150" width="160" height="35" fill="#475569" rx="6"/>
+  <circle cx="40" cy="167" r="5" fill="#94a3b8"/>
+  <text x="55" y="172" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">Merchants</text>
+  
+  <rect x="20" y="190" width="160" height="35" fill="#475569" rx="6"/>
+  <circle cx="40" cy="207" r="5" fill="#94a3b8"/>
+  <text x="55" y="212" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">Transactions</text>
+  
+  <rect x="20" y="230" width="160" height="35" fill="#475569" rx="6"/>
+  <circle cx="40" cy="247" r="5" fill="#94a3b8"/>
+  <text x="55" y="252" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">Analytics</text>
+  
+  <!-- AI Features Section -->
+  <text x="30" y="290" fill="#64748b" font-family="Arial, sans-serif" font-size="10" font-weight="bold">AI FEATURES</text>
+  
+  <rect x="20" y="300" width="160" height="35" fill="url(#aiGradient)" rx="6"/>
+  <circle cx="40" cy="317" r="5" fill="#ffffff"/>
+  <text x="55" y="322" fill="#ffffff" font-family="Arial, sans-serif" font-size="11">Fraud Detection</text>
+  
+  <rect x="20" y="340" width="160" height="35" fill="#475569" rx="6"/>
+  <circle cx="40" cy="357" r="5" fill="#94a3b8"/>
+  <text x="55" y="362" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">Predictive Analytics</text>
+  
+  <rect x="20" y="380" width="160" height="35" fill="#475569" rx="6"/>
+  <circle cx="40" cy="397" r="5" fill="#94a3b8"/>
+  <text x="55" y="402" fill="#cbd5e1" font-family="Arial, sans-serif" font-size="11">Real-time Monitor</text>
+  
+  <!-- Main Content Area -->
+  <rect x="220" y="20" width="560" height="560" fill="url(#cardGradient)" rx="12"/>
+  
+  <!-- Header -->
+  <rect x="240" y="40" width="520" height="60" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="260" y="60" fill="#1e293b" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Dashboard Overview</text>
+  <text x="260" y="80" fill="#64748b" font-family="Arial, sans-serif" font-size="12">AI-powered payment gateway analytics</text>
+  
+  <!-- Stats Cards -->
+  <rect x="240" y="120" width="120" height="80" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="270" cy="140" r="8" fill="#10b981"/>
+  <text x="260" y="165" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">€847,320</text>
+  <text x="260" y="180" fill="#64748b" font-family="Arial, sans-serif" font-size="10">Revenue</text>
+  <text x="320" y="140" fill="#10b981" font-family="Arial, sans-serif" font-size="10">+12.5%</text>
+  
+  <rect x="380" y="120" width="120" height="80" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="410" cy="140" r="8" fill="#3b82f6"/>
+  <text x="400" y="165" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">2,847</text>
+  <text x="400" y="180" fill="#64748b" font-family="Arial, sans-serif" font-size="10">Transactions</text>
+  <text x="460" y="140" fill="#3b82f6" font-family="Arial, sans-serif" font-size="10">+8.2%</text>
+  
+  <rect x="520" y="120" width="120" height="80" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="550" cy="140" r="8" fill="#8b5cf6"/>
+  <text x="540" y="165" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">127</text>
+  <text x="540" y="180" fill="#64748b" font-family="Arial, sans-serif" font-size="10">Active Merchants</text>
+  <text x="600" y="140" fill="#8b5cf6" font-family="Arial, sans-serif" font-size="10">+3.1%</text>
+  
+  <rect x="660" y="120" width="100" height="80" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="685" cy="140" r="8" fill="#f59e0b"/>
+  <text x="675" y="165" fill="#1e293b" font-family="Arial, sans-serif" font-size="14" font-weight="bold">98.7%</text>
+  <text x="675" y="180" fill="#64748b" font-family="Arial, sans-serif" font-size="10">Success Rate</text>
+  
+  <!-- AI Widget -->
+  <rect x="240" y="220" width="250" height="120" fill="url(#aiGradient)" rx="12"/>
+  <circle cx="270" cy="250" r="12" fill="#ffffff"/>
+  <text x="290" y="245" fill="#ffffff" font-family="Arial, sans-serif" font-size="14" font-weight="bold">DeepSeek AI</text>
+  <text x="290" y="260" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="10">Gateway AI Insights</text>
+  
+  <rect x="260" y="270" width="210" height="50" fill="rgba(255,255,255,0.1)" rx="6"/>
+  <text x="270" y="285" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">✓ Excellent Performance</text>
+  <text x="270" y="298" fill="#e0e7ff" font-family="Arial, sans-serif" font-size="8">Processing €434k with 98.7% success rate</text>
+  <text x="270" y="310" fill="#ffffff" font-family="Arial, sans-serif" font-size="9">⚡ Advanced Security</text>
+  
+  <!-- Charts Area -->
+  <rect x="510" y="220" width="250" height="120" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="530" y="240" fill="#1e293b" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Revenue Trend</text>
+  
+  <!-- Simple chart representation -->
+  <polyline points="530,280 550,270 570,275 590,260 610,265 630,250 650,255 670,240 690,245 710,230" 
+            fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="530" cy="280" r="2" fill="#3b82f6"/>
+  <circle cx="590" cy="260" r="2" fill="#3b82f6"/>
+  <circle cx="650" cy="255" r="2" fill="#3b82f6"/>
+  <circle cx="710" cy="230" r="2" fill="#3b82f6"/>
+  
+  <!-- Recent Activity -->
+  <rect x="240" y="360" width="250" height="200" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="260" y="380" fill="#1e293b" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Recent Transactions</text>
+  
+  <!-- Transaction items -->
+  <rect x="260" y="390" width="210" height="30" fill="#f8fafc" rx="4"/>
+  <circle cx="275" cy="405" r="4" fill="#10b981"/>
+  <text x="290" y="400" fill="#1e293b" font-family="Arial, sans-serif" font-size="9">Damascus Electronics</text>
+  <text x="290" y="410" fill="#64748b" font-family="Arial, sans-serif" font-size="8">€1,250.00</text>
+  <text x="430" y="405" fill="#10b981" font-family="Arial, sans-serif" font-size="8">Completed</text>
+  
+  <rect x="260" y="425" width="210" height="30" fill="#f8fafc" rx="4"/>
+  <circle cx="275" cy="440" r="4" fill="#f59e0b"/>
+  <text x="290" y="435" fill="#1e293b" font-family="Arial, sans-serif" font-size="9">Aleppo Fashion</text>
+  <text x="290" y="445" fill="#64748b" font-family="Arial, sans-serif" font-size="8">€890.50</text>
+  <text x="430" y="440" fill="#f59e0b" font-family="Arial, sans-serif" font-size="8">Pending</text>
+  
+  <rect x="260" y="460" width="210" height="30" fill="#f8fafc" rx="4"/>
+  <circle cx="275" cy="475" r="4" fill="#10b981"/>
+  <text x="290" y="470" fill="#1e293b" font-family="Arial, sans-serif" font-size="9">Homs Restaurant</text>
+  <text x="290" y="480" fill="#64748b" font-family="Arial, sans-serif" font-size="8">€2,100.00</text>
+  <text x="430" y="475" fill="#10b981" font-family="Arial, sans-serif" font-size="8">Completed</text>
+  
+  <!-- Fraud Detection Panel -->
+  <rect x="510" y="360" width="250" height="200" fill="#ffffff" rx="8" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="530" y="380" fill="#1e293b" font-family="Arial, sans-serif" font-size="12" font-weight="bold">AI Fraud Detection</text>
+  
+  <!-- Risk indicators -->
+  <rect x="530" y="390" width="210" height="40" fill="#fef2f2" rx="6" stroke="#fecaca" stroke-width="1"/>
+  <circle cx="545" cy="405" r="4" fill="#ef4444"/>
+  <text x="560" y="400" fill="#dc2626" font-family="Arial, sans-serif" font-size="9" font-weight="bold">High Risk Alert</text>
+  <text x="560" y="412" fill="#991b1b" font-family="Arial, sans-serif" font-size="8">Suspicious transaction pattern detected</text>
+  <text x="560" y="422" fill="#991b1b" font-family="Arial, sans-serif" font-size="8">Risk Score: 87%</text>
+  
+  <rect x="530" y="440" width="210" height="35" fill="#f0fdf4" rx="6" stroke="#bbf7d0" stroke-width="1"/>
+  <circle cx="545" cy="457" r="4" fill="#22c55e"/>
+  <text x="560" y="452" fill="#16a34a" font-family="Arial, sans-serif" font-size="9" font-weight="bold">System Secure</text>
+  <text x="560" y="464" fill="#15803d" font-family="Arial, sans-serif" font-size="8">All transactions processing normally</text>
+  
+  <rect x="530" y="485" width="210" height="35" fill="#fffbeb" rx="6" stroke="#fed7aa" stroke-width="1"/>
+  <circle cx="545" cy="502" r="4" fill="#f59e0b"/>
+  <text x="560" y="497" fill="#d97706" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Medium Risk</text>
+  <text x="560" y="509" fill="#92400e" font-family="Arial, sans-serif" font-size="8">Geographic anomaly - Under review</text>
+  
+  <!-- AI Badge -->
+  <rect x="680" y="30" width="70" height="25" fill="url(#aiGradient)" rx="12"/>
+  <text x="715" y="45" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">AI Powered</text>
+</svg>

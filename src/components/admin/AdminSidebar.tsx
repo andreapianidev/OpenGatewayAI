@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { X, Home, Users, CreditCard, Settings, BarChart3, Percent, LogOut, Monitor, Wifi, AlertTriangle, Brain } from 'lucide-react';
+import { X, Home, Users, CreditCard, Settings, BarChart3, Percent, LogOut, Monitor, Wifi, AlertTriangle, Brain, Shield, TrendingUp, Activity } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface AdminSidebarProps {
@@ -105,6 +105,63 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
                 </Link>
               );
             })}
+            
+            {/* AI-Powered Features */}
+            <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              AI Features
+            </div>
+            
+            <Link
+              to="/admin/ai-analytics"
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                isActive('/admin/ai-analytics')
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+              onClick={() => onClose()}
+            >
+              <Brain className="w-5 h-5 mr-3" />
+              AI Analytics
+            </Link>
+            
+            <Link
+              to="/admin/fraud-detection"
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                isActive('/admin/fraud-detection')
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+              onClick={() => onClose()}
+            >
+              <Shield className="w-5 h-5 mr-3" />
+              Fraud Detection
+            </Link>
+            
+            <Link
+              to="/admin/real-time-monitoring"
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                isActive('/admin/real-time-monitoring')
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+              onClick={() => onClose()}
+            >
+              <Activity className="w-5 h-5 mr-3" />
+              Real-time Monitoring
+            </Link>
+            
+            <Link
+              to="/admin/predictive-analytics"
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                isActive('/admin/predictive-analytics')
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+              onClick={() => onClose()}
+            >
+              <TrendingUp className="w-5 h-5 mr-3" />
+              Predictive Analytics
+            </Link>
           </div>
         </nav>
 

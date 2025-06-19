@@ -5,16 +5,8 @@ import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 import MerchantDashboard from './pages/MerchantDashboard';
 import LandingPage from './pages/LandingPage';
+import AndroidPreview from './pages/AndroidPreview';
 import ProtectedRoute from './components/ProtectedRoute';
-import MerchantOverview from './components/MerchantOverview';
-import TransactionHistory from './components/TransactionHistory';
-import AccountSettings from './components/AccountSettings';
-import SupportTickets from './components/SupportTickets';
-import MerchantManagement from './components/MerchantManagement';
-import TransactionManagement from './components/TransactionManagement';
-import ReportsAnalytics from './components/ReportsAnalytics';
-import SystemSettings from './components/SystemSettings';
-import CommissionSettings from './components/CommissionSettings';
 import './i18n';
 
 function App() {
@@ -25,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/android-preview" element={<AndroidPreview />} />
             <Route 
               path="/admin/*" 
               element={

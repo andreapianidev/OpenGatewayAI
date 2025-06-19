@@ -448,5 +448,22 @@
     "transactionHistoryDesc": "التاريخ الكامل لمعاملاتك",
     "configureAccount": "تكوين الحساب",
     "technicalSupport": "المساعدة التقنية"
+  },
+  "landing": {
+    "title": "بوابة الدفع",
+    "subtitle": "مع ذكاء اصطناعي مدمج",
+    "description": "بوابة دفع مفتوحة المصدر مع تحليلات مدعومة بالذكاء الاصطناعي وكشف الاحتيال. خلفية آمنة، لوحات تحكم متقدمة، تكامل مع معالجات البنوك المحلية.",
+    "accessDemo": "الوصول للعرض التوضيحي",
+    "androidPreview": "معاينة أندرويد POS",
+    "proprietaryBackend": "الخلفية المملوكة",
+    "proprietaryBackendDesc": "منصة معالجة دفع ثورية مع قدرات ذكاء اصطناعي مدمجة، جاهزة لشهادة PCI-DSS وتكامل POS عالمي.",
+    "advancedSecurity": "أمان TLS 1.2+ متقدم وتشفير",
+    "completeAudit": "سجل تدقيق كامل للامتثال",
+    "merchantManagement": "إدارة التجار",
+    "merchantManagementDesc": "تحكم كامل في إعداد التجار والعمولات المخصصة ومراقبة المعاملات في الوقت الفعلي.",
+    "advancedDashboard": "لوحة تحكم إدارية متقدمة",
+    "dynamicFeeEngine": "محرك رسوم ديناميكي",
+    "dashboardTitle": "لوحة التحكم الإدارية",
+    "dashboardDescription": "واجهة كاملة لإدارة بوابة الدفع مع ذكاء اصطناعي مدمج"
   }
 }

@@ -468,5 +468,60 @@
     "newPaymentRequestForm": "New Payment Request",
     "createAndManagePaymentLinks": "Create and manage payment links for your customers",
     "transactionLimitIncrease": "Transaction limit increase request"
+  },
+  "landing": {
+    "title": "Payment Gateway",
+    "subtitle": "with Integrated AI",
+    "description": "Open Source Payment Gateway with AI-powered analytics and fraud detection. Secure backend, advanced dashboards, integration with local banking processors.",
+    "accessDemo": "Access Demo",
+    "androidPreview": "Android POS Preview",
+    "proprietaryBackend": "Proprietary Backend",
+    "proprietaryBackendDesc": "Revolutionary payment processing platform with integrated AI capabilities, ready for PCI-DSS certification and global POS integration.",
+    "advancedSecurity": "Advanced TLS 1.2+ security and cryptography",
+    "completeAudit": "Complete audit log for compliance",
+    "merchantManagement": "Merchant Management",
+    "merchantManagementDesc": "Complete control over merchant onboarding, personalized commissions and real-time transaction monitoring.",
+    "advancedDashboard": "Advanced administrative dashboard",
+    "dynamicFeeEngine": "Dynamic fee engine",
+    "dashboardTitle": "Administrative Dashboard",
+    "dashboardDescription": "Complete interface for payment gateway management with integrated AI"
+  },
+  "androidPreview": {
+    "title": "Android POS Preview",
+    "backToHome": "Back to Home",
+    "posHeader": "OpenGatewayAI POS",
+    "paymentTerminal": "Payment Terminal",
+    "amount": "Amount",
+    "paymentMethod": "Payment Method",
+    "card": "Card",
+    "contactless": "Contactless",
+    "pay": "Pay",
+    "processing": "Processing...",
+    "paymentCompleted": "Payment Completed!",
+    "transactionId": "Transaction ID",
+    "method": "Method",
+    "creditCard": "Credit Card",
+    "terminalId": "Terminal ID",
+    "merchant": "Merchant",
+    "connection": "Connection",
+    "online": "Online",
+    "simulationLabel": "Android POS Simulation",
+    "featuresTitle": "Android POS Features",
+    "mainFeatures": "Main Features",
+    "techSpecs": "Technical Specifications",
+    "features": {
+      "cardPayments": "Credit/debit card payments",
+      "contactlessSupport": "Contactless support (NFC)",
+      "touchInterface": "Intuitive touch interface",
+      "secureConnection": "Secure gateway connection",
+      "digitalReceipts": "Digital receipts"
+    },
+    "specs": {
+      "androidCompatible": "Android 8.0+ compatible",
+      "endToEndEncryption": "End-to-end encryption",
+      "offlineMode": "Offline mode available",
+      "autoUpdates": "Automatic updates",
+      "multiLanguage": "Multi-language support"
+    }
   }
 }
