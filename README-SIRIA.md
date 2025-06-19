@@ -1,5 +1,7 @@
 # Siria Payment Gateway - نظام الدفع الإلكتروني السوري
 
+![Siria Payment Gateway](./assets/siria-payment-banner.svg)
+
 ## English Version
 
 ### Overview
