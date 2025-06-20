@@ -32,7 +32,9 @@ const POSManagement: React.FC = () => {
       lastTransaction: '2 min fa',
       todayTransactions: 127,
       todayRevenue: 3450.75,
-      batteryLevel: undefined
+      batteryLevel: undefined,
+      version: '2.1.0',
+      ipAddress: '192.168.1.100'
     },
     {
       id: 'pos-002',
@@ -43,7 +45,9 @@ const POSManagement: React.FC = () => {
       lastTransaction: '5 min fa',
       todayTransactions: 89,
       todayRevenue: 2180.30,
-      batteryLevel: 78
+      batteryLevel: 78,
+      version: '2.1.3',
+      ipAddress: '192.168.1.101'
     },
     {
       id: 'pos-003',
@@ -54,7 +58,9 @@ const POSManagement: React.FC = () => {
       lastTransaction: '1 ora fa',
       todayTransactions: 45,
       todayRevenue: 890.50,
-      batteryLevel: 45
+      batteryLevel: 45,
+      version: '2.0.8',
+      ipAddress: '192.168.1.102'
     }
   ]);
 
@@ -85,7 +91,7 @@ const POSManagement: React.FC = () => {
       tier: 'standard',
       issueDate: '2023-01-15',
       lastUsed: '2024-01-20T10:30:00Z',
-      cardType: 'debit',
+      cardType: 'physical',
       pin: '****',
       cvv: '***',
       customerId: 'cust-001',
@@ -104,26 +110,26 @@ const POSManagement: React.FC = () => {
       tier: 'premium',
       issueDate: '2022-06-10',
       lastUsed: '2024-01-19T15:45:00Z',
-      cardType: 'debit',
-      pin: '****',
-      cvv: '***',
-      customerId: 'cust-002',
-      issuingBank: 'Banca Premium',
-      currency: 'EUR'
-    },
-    {
-      id: 'card-003',
-      cardNumber: '**** **** **** 9012',
-      holderName: 'Giuseppe Verdi',
-      expiryDate: '03/27',
-      status: 'active',
-      balance: 5200.00,
-      dailyLimit: 2000,
-      monthlySpent: 3200.50,
-      tier: 'business',
-      issueDate: '2023-03-20',
-      lastUsed: '2024-01-20T09:15:00Z',
-      cardType: 'debit',
+      cardType: 'physical',
+       pin: '****',
+       cvv: '***',
+       customerId: 'cust-002',
+       issuingBank: 'Banca Premium',
+       currency: 'EUR'
+     },
+     {
+       id: 'card-003',
+       cardNumber: '**** **** **** 9012',
+       holderName: 'Giuseppe Verdi',
+       expiryDate: '03/27',
+       status: 'active',
+       balance: 5200.00,
+       dailyLimit: 2000,
+       monthlySpent: 3200.50,
+       tier: 'business',
+       issueDate: '2023-03-20',
+       lastUsed: '2024-01-20T09:15:00Z',
+       cardType: 'physical',
       pin: '****',
       cvv: '***',
       customerId: 'cust-003',
@@ -196,7 +202,7 @@ const POSManagement: React.FC = () => {
       aiDecision: {
         recommendation: 'approve',
         confidence: 85,
-        riskFactors: ['No previous banking history']
+        reasons: ['No previous banking history']
       }
     },
     {
@@ -217,7 +223,7 @@ const POSManagement: React.FC = () => {
       aiDecision: {
         recommendation: 'approve',
         confidence: 95,
-        fraudProbability: 0.05
+        reasons: ['Low risk profile', 'Verified documents']
       }
     }
   ]);
@@ -577,7 +583,6 @@ const POSManagement: React.FC = () => {
           <POSDeviceManagement
             devices={posDevices}
             selectedDevice={selectedDevice}
-            onSelectDevice={setSelectedDevice}
             onAddDevice={addDevice}
             onUpdateDevice={updateDevice}
             onRemoveDevice={removeDevice}
@@ -595,7 +600,7 @@ const POSManagement: React.FC = () => {
 
         {activeTab === 'cards' && (
           <DebitCardManagement
-            cards={debitCards}
+            debitCards={debitCards}
             transactions={cardTransactions}
             applications={cardApplications}
             selectedCard={selectedCard}
