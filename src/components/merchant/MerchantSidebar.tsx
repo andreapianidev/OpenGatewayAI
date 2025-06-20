@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { X, Home, CreditCard, Receipt, Settings, MessageSquare, LogOut, Wifi, WifiOff, Monitor } from 'lucide-react';
+import { X, Home, CreditCard, Receipt, Settings, MessageSquare, LogOut, Wifi, WifiOff, Monitor, UserPlus } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface MerchantSidebarProps {
@@ -18,6 +18,7 @@ const MerchantSidebar: React.FC<MerchantSidebarProps> = ({ isOpen, onClose }) =>
     { name: t('navigation.dashboard'), href: '/merchant', icon: Home },
     { name: t('navigation.transactionHistory'), href: '/merchant/transactions', icon: CreditCard },
     { name: t('transactions.transactions'), href: '/merchant/payments', icon: Receipt },
+    { name: t('affiliate.affiliateProgram'), href: '/merchant/affiliate-program', icon: UserPlus },
     { name: t('navigation.accountSettings'), href: '/merchant/settings', icon: Settings },
     { name: t('navigation.support'), href: '/merchant/support', icon: MessageSquare },
   ];

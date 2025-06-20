@@ -7,6 +7,7 @@ import TransactionHistory from '../components/merchant/TransactionHistory';
 import PaymentRequests from '../components/merchant/PaymentRequests';
 import AccountSettings from '../components/merchant/AccountSettings';
 import SupportTickets from '../components/merchant/SupportTickets';
+import AffiliateProgram from './AffiliateProgram';
 
 const MerchantDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -23,6 +24,7 @@ const MerchantDashboard: React.FC = () => {
             <Route path="/" element={<MerchantOverview />} />
             <Route path="/transactions" element={<TransactionHistory />} />
             <Route path="/payments" element={<PaymentRequests />} />
+            <Route path="/affiliate-program" element={<AffiliateProgram />} />
             <Route path="/settings" element={<AccountSettings />} />
             <Route path="/support" element={<SupportTickets />} />
             <Route path="*" element={<Navigate to="/merchant" replace />} />

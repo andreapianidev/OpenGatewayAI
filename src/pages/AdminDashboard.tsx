@@ -16,6 +16,7 @@ import RealTimeMonitoring from '../components/ai/RealTimeMonitoring';
 import MerchantLocationsPage from './MerchantLocationsPage';
 import POSManagement from './POSManagement';
 import CloudManagement from './CloudManagement';
+import AffiliateProgram from './AffiliateProgram';
 
 const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -43,6 +44,7 @@ const AdminDashboard: React.FC = () => {
             <Route path="/merchant-locations" element={<MerchantLocationsPage />} />
             <Route path="/pos-management" element={<POSManagement />} />
             <Route path="/cloud-management" element={<CloudManagement />} />
+            <Route path="/affiliate-program" element={<AffiliateProgram />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>
         </main>
