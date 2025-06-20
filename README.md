@@ -274,7 +274,7 @@ To contribute to the project:
 
 ## 📞 Support
 
-For technical support or project questions, contact the development team. 💬
+For technical support or project questions, contact the development team. 💬 Andrea Piani - andreapiani.dev@gmail.com
 
 ---
 

@@ -33,12 +33,26 @@ const LandingPage: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-white mb-6">
-            {t('landing.title')}
-            <span className="block text-blue-300">{t('landing.subtitle')}</span>
+            Payment Gateway Fintech
+            <span className="block text-blue-300">per POS Android e Carte di Debito</span>
           </h1>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            {t('landing.description')}
+          <p className="text-xl text-blue-100 mb-4 max-w-3xl mx-auto">
+            Piattaforma fintech completa per la gestione di pagamenti POS su dispositivi Android con sistema integrato di carte di debito e analytics AI avanzati.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <span className="px-4 py-2 bg-blue-500/30 text-blue-200 rounded-full text-sm font-medium border border-blue-400/30">
+              🤖 Android POS
+            </span>
+            <span className="px-4 py-2 bg-green-500/30 text-green-200 rounded-full text-sm font-medium border border-green-400/30">
+              💳 Carte di Debito
+            </span>
+            <span className="px-4 py-2 bg-purple-500/30 text-purple-200 rounded-full text-sm font-medium border border-purple-400/30">
+              🏦 Fintech Solution
+            </span>
+            <span className="px-4 py-2 bg-orange-500/30 text-orange-200 rounded-full text-sm font-medium border border-orange-400/30">
+              🧠 AI Analytics
+            </span>
+          </div>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link 
               to="/login"
@@ -63,18 +77,22 @@ const LandingPage: React.FC = () => {
             <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
               <Shield className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">{t('landing.proprietaryBackend')}</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Backend Fintech Proprietario</h3>
             <p className="text-blue-100 mb-6">
-              {t('landing.proprietaryBackendDesc')}
+              Piattaforma di elaborazione pagamenti rivoluzionaria con capacità AI integrate, pronta per certificazione PCI-DSS e integrazione POS globale su Android.
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-green-300">
                 <CheckCircle className="w-5 h-5 mr-3" />
-                <span>{t('landing.advancedSecurity')}</span>
+                <span>Sicurezza TLS 1.2+ e crittografia avanzata</span>
               </div>
               <div className="flex items-center text-green-300">
                 <CheckCircle className="w-5 h-5 mr-3" />
-                <span>{t('landing.completeAudit')}</span>
+                <span>Audit completo per conformità PCI-DSS</span>
+              </div>
+              <div className="flex items-center text-green-300">
+                <CheckCircle className="w-5 h-5 mr-3" />
+                <span>SDK Android nativo per POS</span>
               </div>
             </div>
           </div>
@@ -83,18 +101,22 @@ const LandingPage: React.FC = () => {
             <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
               <Users className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">{t('landing.merchantManagement')}</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Gestione Carte di Debito</h3>
             <p className="text-blue-100 mb-6">
-              {t('landing.merchantManagementDesc')}
+              Controllo completo sull'onboarding dei merchant, commissioni personalizzate e monitoraggio delle transazioni in tempo reale con analytics AI.
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-green-300">
                 <CheckCircle className="w-5 h-5 mr-3" />
-                <span>{t('landing.advancedDashboard')}</span>
+                <span>Dashboard amministrativo avanzato</span>
               </div>
               <div className="flex items-center text-green-300">
                 <CheckCircle className="w-5 h-5 mr-3" />
-                <span>{t('landing.dynamicFeeEngine')}</span>
+                <span>Motore commissioni dinamico</span>
+              </div>
+              <div className="flex items-center text-green-300">
+                <CheckCircle className="w-5 h-5 mr-3" />
+                <span>Emissione carte di debito integrate</span>
               </div>
             </div>
           </div>
@@ -103,9 +125,9 @@ const LandingPage: React.FC = () => {
         {/* Dashboard Preview */}
         <div className="mb-16">
           <div className="text-center mb-8">
-            <h2 className="text-4xl font-bold text-white text-center mb-4">{t('landing.dashboardTitle')}</h2>
+            <h2 className="text-4xl font-bold text-white text-center mb-4">Dashboard Amministrativo Completo</h2>
           <p className="text-xl text-blue-100 text-center mb-12 max-w-3xl mx-auto">
-            {t('landing.dashboardDescription')}
+            Interfaccia completa per la gestione del gateway di pagamento con AI integrata. Gestisci POS Android, carte di debito, transazioni e analytics in tempo reale.
           </p>
           </div>
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
