@@ -52,6 +52,12 @@ const LandingPage: React.FC = () => {
             <span className="px-4 py-2 bg-orange-500/30 text-orange-200 rounded-full text-sm font-medium border border-orange-400/30">
               🧠 AI Analytics
             </span>
+            <span className="px-4 py-2 bg-red-500/30 text-red-200 rounded-full text-sm font-medium border border-red-400/30">
+              🪟 Windows Native
+            </span>
+            <span className="px-4 py-2 bg-gray-500/30 text-gray-200 rounded-full text-sm font-medium border border-gray-400/30">
+              🍎 macOS Universal
+            </span>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link 
@@ -179,15 +185,132 @@ const LandingPage: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Native Apps & GitHub Section */}
+        <div className="mt-16 mb-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">App Native Multi-Piattaforma</h2>
+            <p className="text-xl text-blue-100 max-w-4xl mx-auto">
+              Disponibile come applicazione nativa per macOS (Intel & Apple Silicon), Windows e web. 
+              Progetto open source disponibile su GitHub con build ottimizzate per ogni piattaforma.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
+              <div className="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🍎</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">macOS Universal</h3>
+              <p className="text-blue-100 text-sm mb-4">
+                Build ottimizzate per processori Intel x64 e Apple Silicon (M1/M2/M3). 
+                Interfaccia nativa macOS con supporto Dark Mode.
+              </p>
+              <div className="space-y-2 text-xs text-green-300">
+                <div>✓ Apple Silicon (ARM64)</div>
+                <div>✓ Intel x64</div>
+                <div>✓ Native macOS UI</div>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🪟</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Windows Native</h3>
+              <p className="text-blue-100 text-sm mb-4">
+                Applicazione nativa Windows con installer NSIS. 
+                Supporto per architetture x64 e x86 (32-bit).
+              </p>
+              <div className="space-y-2 text-xs text-green-300">
+                <div>✓ Windows x64</div>
+                <div>✓ Windows x86 (32-bit)</div>
+                <div>✓ NSIS Installer</div>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🌐</span>
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Web Application</h3>
+              <p className="text-blue-100 text-sm mb-4">
+                Versione web responsive accessibile da qualsiasi browser moderno. 
+                PWA con supporto offline.
+              </p>
+              <div className="space-y-2 text-xs text-green-300">
+                <div>✓ Progressive Web App</div>
+                <div>✓ Responsive Design</div>
+                <div>✓ Cross-Browser</div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 backdrop-blur-md rounded-2xl p-8 border border-purple-400/30 text-center">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                <span className="text-2xl">🐙</span>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">Open Source su GitHub</h3>
+                <p className="text-purple-200">Progetto completamente open source con documentazione completa</p>
+              </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="bg-purple-800/30 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-purple-200 mb-2">🚀 Build Automatizzate</h4>
+                <p className="text-purple-100 text-sm">
+                  Script build.sh incluso per generare tutte le versioni con un solo comando. 
+                  Supporto GitHub Actions per CI/CD.
+                </p>
+              </div>
+              <div className="bg-purple-800/30 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-purple-200 mb-2">📚 Documentazione Completa</h4>
+                <p className="text-purple-100 text-sm">
+                  README dettagliati per ogni piattaforma, guide di installazione e 
+                  documentazione API completa.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+              <a 
+                href="https://github.com/andreapiani/OpenGatewayAI"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-200 flex items-center space-x-2 shadow-xl"
+              >
+                <span>🐙</span>
+                <span>Visualizza su GitHub</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <div className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-xl font-mono text-sm">
+                git clone https://github.com/andreapiani/OpenGatewayAI.git
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Footer */}
       <footer className="bg-black/20 border-t border-white/20 py-8">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-blue-200">
-            OpenGatewayAI - Open Source Payment Gateway | Created by Andrea Piani | 
-            <span className="text-blue-100"> Sviluppato da Immaginet Srl</span>
-          </p>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-4">
+            <p className="text-blue-200 mb-2">
+              OpenGatewayAI - Open Source Payment Gateway | 
+              <a href="https://github.com/andreapiani/OpenGatewayAI" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 transition-colors">
+                Disponibile su GitHub
+              </a>
+            </p>
+            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-lg p-4 border border-blue-400/30 inline-block">
+              <p className="text-blue-100 font-medium">
+                🚀 Created by <span className="text-white font-bold">Andrea Piani</span> | 
+                📧 <a href="mailto:andrea@andreapiani.com" className="text-blue-300 hover:text-blue-200 transition-colors">andrea@andreapiani.com</a> | 
+                <span className="text-blue-200">Sviluppato da Immaginet Srl</span>
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

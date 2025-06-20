@@ -53,11 +53,40 @@ This application is an open-source frontend for a payment gateway with integrate
 
 - **Frontend Framework**: React 18.3.1 with TypeScript
 - **Build Tool**: Vite 5.4.2
+- **Desktop Framework**: Electron (Native Apps)
 - **Styling**: Tailwind CSS 3.4.1
 - **Routing**: React Router DOM 6.20.1
 - **Charts**: Chart.js 4.4.0 + React-ChartJS-2 5.2.0
 - **Icons**: Lucide React 0.344.0
 - **Linting**: ESLint 9.9.1
+
+## 🖥️ Multi-Platform Support
+
+### 📱 Available Platforms
+- **🌐 Web Application**: Progressive Web App with offline support
+- **🍎 macOS Native**: Universal binary (Intel x64 + Apple Silicon ARM64)
+- **🪟 Windows Native**: x64 and x86 (32-bit) support with NSIS installer
+- **🐧 Linux**: AppImage and Debian packages (coming soon)
+
+### 🏗️ Build Optimization
+- **Apple Silicon**: Native ARM64 builds for M1/M2/M3 Macs
+- **Intel Macs**: Optimized x64 builds for Intel processors
+- **Windows**: Universal installer supporting both x64 and x86 architectures
+- **Cross-Platform**: Single codebase for all platforms
+
+### 🚀 Quick Build Script
+Use the included `build.sh` script to build for all platforms:
+```bash
+# Build all platforms at once
+./build.sh
+
+# Or build specific platforms
+npm run build:mac-intel     # macOS Intel
+npm run build:mac-silicon    # macOS Apple Silicon
+npm run build:windows       # Windows (x64 + x86)
+npm run build:web           # Web version
+npm run build:all           # All platforms
+```
 
 ## 📁 Project Structure
 
@@ -165,12 +194,15 @@ The application uses a mock authentication system with two roles:
 - Node.js (version 16 or higher) 🟢
 - npm or yarn 📦
 
-### 🚀 Installation
+### 🚀 Getting Started
 
+### 📥 Installation Options
+
+#### 🌐 Web Version (Recommended for Development)
 ```bash
 # Clone the repository
-git clone [repository-url]
-cd "OpenGatewayAI"
+git clone https://github.com/andreapiani/OpenGatewayAI.git
+cd OpenGatewayAI
 
 # Install dependencies
 npm install
@@ -183,9 +215,34 @@ npm run build
 
 # Preview production build
 npm run preview
+```
 
-# Run linting
-npm run lint
+#### 🖥️ Native Desktop Applications
+
+**🍎 macOS Users**: See [README-MACOS.md](./README-MACOS.md) for detailed macOS installation and features
+
+**🪟 Windows Users**: See [README-WINDOWS.md](./README-WINDOWS.md) for detailed Windows installation and features
+
+#### 🏗️ Build All Platforms
+```bash
+# Use the universal build script
+./build.sh
+
+# Or build specific platforms
+npm run build:mac-intel     # macOS Intel x64
+npm run build:mac-silicon    # macOS Apple Silicon ARM64
+npm run build:windows       # Windows x64 + x86
+npm run build:web           # Web application
+npm run build:all           # All platforms
+```
+
+### 🔧 Development Commands
+```bash
+npm run dev          # 🔥 Development server
+npm run electron:dev # 🖥️ Electron development mode
+npm run build        # 🏗️ Production build
+npm run preview      # 👀 Preview build
+npm run lint         # 🔍 Code linting
 ```
 
 ## 🌐 Routing

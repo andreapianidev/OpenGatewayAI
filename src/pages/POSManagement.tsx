@@ -95,8 +95,17 @@ const POSManagement: React.FC = () => {
       pin: '****',
       cvv: '***',
       customerId: 'cust-001',
-      issuingBank: 'Banca Italiana',
-      currency: 'EUR'
+      features: {
+        contactless: true,
+        onlinePayments: true,
+        internationalTransactions: false,
+        atmWithdrawals: true
+      },
+      spending: {
+        today: 45.50,
+        thisWeek: 230.75,
+        thisMonth: 1250.30
+      }
     },
     {
       id: 'card-002',
@@ -108,14 +117,23 @@ const POSManagement: React.FC = () => {
       dailyLimit: 500,
       monthlySpent: 450.80,
       tier: 'premium',
-      issueDate: '2022-06-10',
-      lastUsed: '2024-01-19T15:45:00Z',
-      cardType: 'physical',
+       issueDate: '2022-06-10',
+       lastUsed: '2024-01-19T15:45:00Z',
+       cardType: 'physical',
        pin: '****',
        cvv: '***',
        customerId: 'cust-002',
-       issuingBank: 'Banca Premium',
-       currency: 'EUR'
+       features: {
+         contactless: true,
+         onlinePayments: true,
+         internationalTransactions: true,
+         atmWithdrawals: true
+       },
+       spending: {
+         today: 125.00,
+         thisWeek: 450.80,
+         thisMonth: 1850.60
+       }
      },
      {
        id: 'card-003',
@@ -127,14 +145,23 @@ const POSManagement: React.FC = () => {
        dailyLimit: 2000,
        monthlySpent: 3200.50,
        tier: 'business',
-       issueDate: '2023-03-20',
-       lastUsed: '2024-01-20T09:15:00Z',
-       cardType: 'physical',
+      issueDate: '2023-03-20',
+      lastUsed: '2024-01-20T09:15:00Z',
+      cardType: 'physical',
       pin: '****',
       cvv: '***',
       customerId: 'cust-003',
-      issuingBank: 'Banca Business',
-      currency: 'EUR'
+      features: {
+        contactless: true,
+        onlinePayments: true,
+        internationalTransactions: true,
+        atmWithdrawals: true
+      },
+      spending: {
+        today: 520.00,
+        thisWeek: 3200.50,
+        thisMonth: 8750.25
+      }
     }
   ]);
 
@@ -188,41 +215,29 @@ const POSManagement: React.FC = () => {
       id: 'app-001',
       applicantName: 'Luca Ferrari',
       email: 'luca.ferrari@email.com',
-      phone: '+39 333 123 4567',
-      requestedTier: 'standard',
-      submissionDate: '2024-01-18T14:30:00Z',
+      cardType: 'physical',
+      tier: 'standard',
       status: 'pending',
-      documents: {
-        idDocument: true,
-        incomeProof: true,
-        addressProof: false
-      },
-      creditScore: 720,
-      monthlyIncome: 2500,
+      submittedAt: '2024-01-18T14:30:00Z',
+      riskScore: 0.25,
       aiDecision: {
         recommendation: 'approve',
-        confidence: 85,
-        reasons: ['No previous banking history']
+        confidence: 0.85,
+        reasons: ['Good credit history', 'Stable income']
       }
     },
     {
       id: 'app-002',
       applicantName: 'Sofia Romano',
       email: 'sofia.romano@email.com',
-      phone: '+39 347 987 6543',
-      requestedTier: 'premium',
-      submissionDate: '2024-01-17T09:45:00Z',
+      cardType: 'virtual',
+      tier: 'premium',
       status: 'approved',
-      documents: {
-        idDocument: true,
-        incomeProof: true,
-        addressProof: true
-      },
-      creditScore: 850,
-      monthlyIncome: 4500,
+      submittedAt: '2024-01-17T09:45:00Z',
+      riskScore: 0.15,
       aiDecision: {
         recommendation: 'approve',
-        confidence: 95,
+        confidence: 0.95,
         reasons: ['Low risk profile', 'Verified documents']
       }
     }
@@ -354,7 +369,8 @@ const POSManagement: React.FC = () => {
     addToLog(`Carta ${cardId} sbloccata`);
   };
 
-  const updateCardLimits = (cardId: string, dailyLimit: number, monthlyLimit: number) => {
+  const updateCardLimits = (cardId: string, dailyLimit: number) => {
+    const monthlyLimit = dailyLimit * 30; // Default monthly limit
     setDebitCards(prev => prev.map(card => 
       card.id === cardId ? { ...card, dailyLimit, monthlyLimit } : card
     ));
@@ -369,7 +385,19 @@ const POSManagement: React.FC = () => {
   };
 
   // POS Device Management Functions
-  const addDevice = (device: Omit<POSDevice, 'id'>) => {
+  const addDevice = () => {
+    const device: Omit<POSDevice, 'id'> = {
+      name: `POS Device ${posDevices.length + 1}`,
+      type: 'mobile',
+      status: 'online',
+      location: 'New Location',
+      batteryLevel: 100,
+      lastTransaction: new Date().toISOString(),
+      todayTransactions: 0,
+      todayRevenue: 0,
+      version: '1.0.0',
+      ipAddress: '192.168.1.' + (100 + posDevices.length)
+    };
     const newDevice: POSDevice = {
       ...device,
       id: `pos-${Date.now()}`
@@ -460,6 +488,7 @@ const POSManagement: React.FC = () => {
       timestamp: new Date().toISOString(),
       riskScore,
       aiAnalysis: {
+        fraudProbability: riskScore,
         customerBehavior: riskScore > 0.7 ? 'suspicious' : riskScore > 0.3 ? 'high-value' : 'normal',
         recommendations: riskScore > 0.7 ? ['Verify identity'] : ['Standard processing']
       }
@@ -583,36 +612,29 @@ const POSManagement: React.FC = () => {
           <POSDeviceManagement
             devices={posDevices}
             selectedDevice={selectedDevice}
-            onAddDevice={addDevice}
-            onUpdateDevice={updateDevice}
-            onRemoveDevice={removeDevice}
-            onRestartDevice={restartDevice}
-            isSimulating={isSimulating}
-            onToggleSimulation={() => setIsSimulating(!isSimulating)}
-            simulationLog={simulationLog}
-            aiInsights={aiInsights}
-            performanceData={performanceData}
-            onGenerateInsight={generateAIInsight}
-            onSimulateTransaction={simulateTransaction}
-            recentTransactions={recentTransactions}
+            setSelectedDevice={setSelectedDevice}
+            addDevice={addDevice}
+            updateDevice={updateDevice}
+            removeDevice={removeDevice}
+            restartDevice={restartDevice}
           />
         )}
 
         {activeTab === 'cards' && (
           <DebitCardManagement
             debitCards={debitCards}
-            transactions={cardTransactions}
-            applications={cardApplications}
+            cardTransactions={cardTransactions}
+            cardApplications={cardApplications}
             selectedCard={selectedCard}
-            view={cardManagementView}
-            onSelectCard={setSelectedCard}
-            onChangeView={setCardManagementView}
-            onBlockCard={blockCard}
-            onUnblockCard={unblockCard}
-            onUpdateLimits={updateCardLimits}
-            onProcessApplication={processCardApplication}
-            onSimulateTransaction={simulateCardTransaction}
-            analytics={generateCardAnalytics()}
+            cardManagementView={cardManagementView}
+            setSelectedCard={setSelectedCard}
+            setCardManagementView={setCardManagementView}
+            blockCard={blockCard}
+            unblockCard={unblockCard}
+            updateCardLimits={updateCardLimits}
+            processCardApplication={processCardApplication}
+            simulateCardTransaction={simulateCardTransaction}
+            generateCardAnalytics={generateCardAnalytics}
           />
         )}
 
