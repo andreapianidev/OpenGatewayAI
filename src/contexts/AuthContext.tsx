@@ -36,19 +36,38 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const savedUser = localStorage.getItem('opengateway_user');
     const rememberFlag = localStorage.getItem('opengateway_remember');
+    const expiryDate = localStorage.getItem('opengateway_expiry');
     
     // Only restore user if they chose "Remember me"
     if (savedUser && rememberFlag === 'true') {
       try {
-        setUser(JSON.parse(savedUser));
+        const userData = JSON.parse(savedUser);
+        
+        // Check if session has expired for admin users
+        if (userData.role === 'admin' && expiryDate) {
+          const expiry = new Date(expiryDate);
+          const now = new Date();
+          
+          if (now > expiry) {
+            // Session expired, clear data
+            localStorage.removeItem('opengateway_user');
+            localStorage.removeItem('opengateway_remember');
+            localStorage.removeItem('opengateway_expiry');
+            return;
+          }
+        }
+        
+        setUser(userData);
       } catch (error) {
         localStorage.removeItem('opengateway_user');
         localStorage.removeItem('opengateway_remember');
+        localStorage.removeItem('opengateway_expiry');
       }
     } else {
       // Clear any stale data if remember flag is not set
       localStorage.removeItem('opengateway_user');
       localStorage.removeItem('opengateway_remember');
+      localStorage.removeItem('opengateway_expiry');
     }
   }, []);
 
@@ -80,9 +99,16 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (rememberMe) {
         localStorage.setItem('opengateway_user', JSON.stringify(userData));
         localStorage.setItem('opengateway_remember', 'true');
+        // Set expiration date for admin users (30 days)
+        if (userData.role === 'admin') {
+          const expirationDate = new Date();
+          expirationDate.setDate(expirationDate.getDate() + 30);
+          localStorage.setItem('opengateway_expiry', expirationDate.toISOString());
+        }
       } else {
         localStorage.removeItem('opengateway_user');
         localStorage.removeItem('opengateway_remember');
+        localStorage.removeItem('opengateway_expiry');
       }
       
       return true;
@@ -95,6 +121,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setUser(null);
     localStorage.removeItem('opengateway_user');
     localStorage.removeItem('opengateway_remember');
+    localStorage.removeItem('opengateway_expiry');
   };
 
   const value = {
