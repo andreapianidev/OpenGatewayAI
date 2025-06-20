@@ -201,7 +201,7 @@ The application uses a mock authentication system with two roles:
 #### 🌐 Web Version (Recommended for Development)
 ```bash
 # Clone the repository
-git clone https://github.com/andreapiani/OpenGatewayAI.git
+git clone https://github.com/andreapianidev/OpenGatewayAI.git
 cd OpenGatewayAI
 
 # Install dependencies

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, BarChart, Bar, ComposedChart } from 'recharts';
 import { Activity, Zap, Server, Globe, AlertTriangle, CheckCircle, Clock, TrendingUp, TrendingDown, Wifi, Database, Cpu, HardDrive, Users, CreditCard, Settings, Bell, RefreshCw, Download, Filter, Eye, EyeOff, Maximize2, Minimize2, Play, Pause, BarChart3, PieChart, Calendar, Share2 } from 'lucide-react';
 
@@ -65,6 +66,7 @@ interface AlertRule {
 }
 
 const RealTimeMonitoring: React.FC = () => {
+  const { t } = useTranslation();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isConnected, setIsConnected] = useState(true);
   const [liveData, setLiveData] = useState<any[]>([]);
@@ -323,7 +325,7 @@ const RealTimeMonitoring: React.FC = () => {
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
             <Activity className="w-8 h-8 text-blue-600" />
-            Monitoraggio Real-Time
+            {t('ai.realTimeMonitoringDashboard')}
           </h1>
           <div className="flex items-center gap-4">
             {/* Real-time Controls */}

@@ -242,7 +242,7 @@ L'app supporta aggiornamenti automatici:
 ### Contatti
 - **Sviluppatore**: Andrea Piani
 - **Email**: [support@opengateway-ai.com]
-- **GitHub**: [Issues](https://github.com/andreapiani/opengateway-ai/issues)
+- **GitHub**: [Issues](https://github.com/andreapianidev/OpenGatewayAI/issues)
 
 ---
 

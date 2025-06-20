@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "author": "Andrea Piani",
   "license": "MIT",
-  "homepage": "https://github.com/andreapiani/opengateway-ai",
+  "homepage": "https://github.com/andreapianidev/OpenGatewayAI",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andreapiani/opengateway-ai.git"
+    "url": "https://github.com/andreapianidev/OpenGatewayAI.git"
   },
   "keywords": [
     "payment-gateway",
@@ -137,8 +137,8 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "andreapiani",
-      "repo": "opengateway-ai"
+      "owner": "andreapianidev",
+      "repo": "OpenGatewayAI"
     }
   }
 }

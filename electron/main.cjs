@@ -242,20 +242,20 @@ function createMenu() {
         {
           label: 'About OpenGateway AI',
           click: () => {
-            shell.openExternal('https://github.com/andreapiani/opengateway-ai');
+            shell.openExternal('https://github.com/andreapianidev/OpenGatewayAI');
           }
         },
         {
           label: 'Documentation',
           click: () => {
-            shell.openExternal('https://github.com/andreapiani/opengateway-ai/wiki');
+            shell.openExternal('https://github.com/andreapianidev/OpenGatewayAI/wiki');
           }
         },
         { type: 'separator' },
         {
           label: 'Report Issue',
           click: () => {
-            shell.openExternal('https://github.com/andreapiani/opengateway-ai/issues');
+            shell.openExternal('https://github.com/andreapianidev/OpenGatewayAI/issues');
           }
         }
       ]

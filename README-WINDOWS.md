@@ -40,7 +40,7 @@ OpenGateway AI is now available as a native Windows application, providing a sea
 1. **Download the Installer**:
    ```
    # Download from GitHub Releases
-   https://github.com/andreapiani/OpenGatewayAI/releases/latest
+   https://github.com/andreapianidev/OpenGatewayAI/releases/latest
    ```
 
 2. **Run the Installer**:
@@ -65,7 +65,7 @@ OpenGateway AI is now available as a native Windows application, providing a sea
 ### Clone and Setup
 ```bash
 # Clone the repository
-git clone https://github.com/andreapiani/OpenGatewayAI.git
+git clone https://github.com/andreapianidev/OpenGatewayAI.git
 cd OpenGatewayAI
 
 # Install dependencies
@@ -211,7 +211,7 @@ Run in debug mode for detailed logging:
 
 ### Support
 For Windows-specific issues:
-- Check the [GitHub Issues](https://github.com/andreapiani/OpenGatewayAI/issues)
+- Check the [GitHub Issues](https://github.com/andreapianidev/OpenGatewayAI/issues)
 - Review Windows Event Log
 - Contact support with system information
 
@@ -259,7 +259,7 @@ For Windows-specific issues:
 
 **Created by Andrea Piani**  
 **Email**: andrea@andreapiani.com  
-**GitHub**: https://github.com/andreapiani/OpenGatewayAI  
+**GitHub**: https://github.com/andreapianidev/OpenGatewayAI  
 **Company**: Immaginet Srl
 
 For technical support and contributions, please visit our GitHub repository.

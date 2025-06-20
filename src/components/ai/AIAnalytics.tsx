@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, ComposedChart } from 'recharts';
 import { TrendingUp, TrendingDown, DollarSign, Users, CreditCard, AlertTriangle, Brain, Target, Zap, Activity, Download, Settings, Bell, Filter, RefreshCw, Calendar, BarChart3, PieChart as PieChartIcon, Share2, Bookmark } from 'lucide-react';
 
@@ -45,6 +46,7 @@ interface DashboardWidget {
 }
 
 const AIAnalytics: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedTimeframe, setSelectedTimeframe] = useState('7d');
   const [isLoading, setIsLoading] = useState(true);
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -265,9 +267,9 @@ const AIAnalytics: React.FC = () => {
       <div className="bg-white rounded-lg shadow-sm border p-4 mb-8">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-            <Brain className="w-8 h-8 text-purple-600" />
-            AI Analytics Dashboard
-          </h1>
+              <Brain className="w-8 h-8 text-purple-600" />
+              {t('ai.analyticsDashboard')}
+            </h1>
           <div className="flex items-center space-x-2">
             {/* Auto Refresh Toggle */}
             <button

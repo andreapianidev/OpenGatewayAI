@@ -623,6 +623,27 @@
     "inProgress": "In Corso",
     "failed": "Fallite"
   },
+  "ai": {
+    "features": "Funzionalità AI",
+    "analytics": "Analisi AI",
+    "fraudDetection": "Rilevamento Frodi",
+    "realTimeMonitoring": "Monitoraggio in Tempo Reale",
+    "cloudManagement": "Gestione Cloud",
+    "settings": "Impostazioni AI",
+    "insights": "Insights AI",
+    "predictions": "Predizioni",
+    "riskAssessment": "Valutazione Rischio",
+    "anomalyDetection": "Rilevamento Anomalie",
+    "machineLearning": "Machine Learning",
+    "neuralNetworks": "Reti Neurali",
+    "deepLearning": "Deep Learning",
+    "dataAnalysis": "Analisi Dati",
+    "smartAlerts": "Alert Intelligenti",
+    "analyticsDashboard": "Dashboard Analisi AI",
+    "fraudDetectionDashboard": "Dashboard Rilevamento Frodi",
+    "realTimeMonitoringDashboard": "Dashboard Monitoraggio Tempo Reale",
+    "cloudManagementDashboard": "Dashboard Gestione Cloud"
+  },
   "landing": {
     "openGatewayAI": "OpenGatewayAI",
     "demoCredentials": "Credenziali Demo",

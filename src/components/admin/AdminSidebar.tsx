@@ -110,7 +110,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             
             {/* AI-Powered Features */}
             <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              AI Features
+              {t('ai.features')}
             </div>
             
             <Link
@@ -123,7 +123,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
               onClick={() => onClose()}
             >
               <Brain className="w-5 h-5 mr-3" />
-              AI Analytics
+              {t('ai.analytics')}
             </Link>
             
             <Link
@@ -136,7 +136,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
               onClick={() => onClose()}
             >
               <Shield className="w-5 h-5 mr-3" />
-              Fraud Detection
+              {t('ai.fraudDetection')}
             </Link>
             
             <Link
@@ -149,7 +149,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
               onClick={() => onClose()}
             >
               <Activity className="w-5 h-5 mr-3" />
-              Real-time Monitoring
+              {t('ai.realTimeMonitoring')}
             </Link>
             
 
@@ -190,7 +190,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
               onClick={() => onClose()}
             >
               <Cloud className="w-5 h-5 mr-3" />
-              Cloud Management
+              {t('ai.cloudManagement')}
             </Link>
             
             {/* Syrian Market Settings - Only visible when Arabic is selected */}

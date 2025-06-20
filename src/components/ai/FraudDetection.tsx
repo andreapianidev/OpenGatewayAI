@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, ComposedChart } from 'recharts';
 import { Shield, AlertTriangle, Eye, Clock, MapPin, CreditCard, User, TrendingUp, CheckCircle, XCircle, AlertCircle, Filter, Search, Download, Brain, Settings, Bell, RefreshCw, Zap, Target, Activity, Globe, Users, DollarSign } from 'lucide-react';
 
@@ -63,6 +64,7 @@ interface RealTimeAlert {
 }
 
 const FraudDetection: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedTimeframe, setSelectedTimeframe] = useState('24h');
   const [filterStatus, setFilterStatus] = useState('all');
   const [isLoading, setIsLoading] = useState(true);
@@ -392,7 +394,7 @@ const FraudDetection: React.FC = () => {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-2">
             <Shield className="text-red-600" />
-            Sistema Anti-Frode ML
+            {t('ai.fraudDetectionDashboard')}
           </h1>
           <div className="flex items-center space-x-2">
             {/* Auto Refresh */}

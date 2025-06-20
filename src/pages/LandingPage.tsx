@@ -276,7 +276,7 @@ const LandingPage: React.FC = () => {
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <a 
-                href="https://github.com/andreapiani/OpenGatewayAI"
+                href="https://github.com/andreapianidev/OpenGatewayAI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-200 flex items-center space-x-2 shadow-xl"
@@ -286,7 +286,7 @@ const LandingPage: React.FC = () => {
                 <ArrowRight className="w-5 h-5" />
               </a>
               <div className="px-6 py-3 bg-gray-800/50 text-gray-300 rounded-xl font-mono text-sm">
-                git clone https://github.com/andreapiani/OpenGatewayAI.git
+                git clone https://github.com/andreapianidev/OpenGatewayAI.git
               </div>
             </div>
           </div>
@@ -299,7 +299,7 @@ const LandingPage: React.FC = () => {
           <div className="text-center mb-4">
             <p className="text-blue-200 mb-2">
               OpenGatewayAI - Open Source Payment Gateway | 
-              <a href="https://github.com/andreapiani/OpenGatewayAI" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 transition-colors">
+              <a href="https://github.com/andreapianidev/OpenGatewayAI" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-purple-200 transition-colors">
                 Disponibile su GitHub
               </a>
             </p>

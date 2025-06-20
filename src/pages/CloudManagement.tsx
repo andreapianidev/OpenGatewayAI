@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Cloud, ArrowLeft, Settings, Download, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Cloud, Settings, Bell, User, RefreshCw, Download } from 'lucide-react';
 import CloudDashboard from '../components/cloud/CloudDashboard';
 import CloudInfrastructureDashboard from '../components/cloud/CloudInfrastructureDashboard';
 import CloudPerformanceMonitoring from '../components/cloud/CloudPerformanceMonitoring';
@@ -13,7 +13,7 @@ interface CloudManagementProps {
 
 const CloudManagement: React.FC<CloudManagementProps> = ({ onBack }) => {
   const { t } = useTranslation();
-  const [activeSection, setActiveSection] = useState<'dashboard' | 'infrastructure' | 'performance' | 'costs' | 'security'>('dashboard');
+  const [activeSection, setActiveSection] = useState<string>('dashboard');
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const handleRefresh = async () => {
@@ -67,12 +67,12 @@ const CloudManagement: React.FC<CloudManagementProps> = ({ onBack }) => {
 
   const getSectionTitle = () => {
     switch (activeSection) {
-      case 'dashboard': return 'Dashboard Cloud';
+      case 'dashboard': return t('ai.cloudManagementDashboard');
       case 'infrastructure': return 'Gestione Infrastruttura';
       case 'performance': return 'Monitoraggio Performance';
       case 'costs': return 'Gestione Costi';
       case 'security': return 'Centro Sicurezza';
-      default: return 'Dashboard Cloud';
+      default: return t('ai.cloudManagementDashboard');
     }
   };
 
