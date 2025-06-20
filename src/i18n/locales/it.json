@@ -655,21 +655,134 @@
     "viewDemo": "Visualizza Demo"
   },
   "landing": {
-    "title": "Gateway Pagamenti",
-    "subtitle": "with Integrated AI",
-    "description": "Open Source Payment Gateway with AI-powered analytics and fraud detection. Backend sicuro, dashboard avanzate, integrazione con processori bancari locali.",
+    "title": "Gateway Pagamenti Intelligente",
+    "subtitle": "con AI Integrata",
+    "mainTitle": "Payment Gateway Fintech",
+    "heroSubtitle": "per POS Android e Carte di Debito",
+    "heroDescription": "Piattaforma fintech completa con gestione cloud multi-provider e programma di affiliazione avanzato. Backend sicuro, dashboard avanzate, integrazione con processori bancari locali.",
     "accessDemo": "Accedi alla Demo",
     "androidPreview": "Anteprima Android POS",
-    "proprietaryBackend": "Backend Proprietario",
-    "proprietaryBackendDesc": "Revolutionary payment processing platform with integrated AI capabilities, ready for PCI-DSS certification and global POS integration.",
-    "advancedSecurity": "Sicurezza TLS 1.2+ e crittografia avanzata",
-    "completeAudit": "Audit log completo per compliance",
-    "merchantManagement": "Gestione Merchant",
-    "merchantManagementDesc": "Controllo completo su onboarding esercenti, commissioni personalizzate e monitoraggio transazioni in tempo reale.",
-    "advancedDashboard": "Dashboard amministrativa avanzata",
-    "dynamicFeeEngine": "Fee engine dinamico",
-    "dashboardTitle": "Dashboard Amministrativa",
-    "dashboardDescription": "Interfaccia completa per la gestione del gateway di pagamento con AI integrata"
+    "features": {
+      "androidPOS": "🤖 Android POS",
+      "debitCards": "💳 Carte di Debito",
+      "fintechSolution": "🏦 Soluzione Fintech",
+      "aiAnalytics": "🧠 AI Analytics",
+      "windowsNative": "🪟 Windows Native",
+      "macOSUniversal": "🍎 macOS Universal",
+      "cloudManagement": "☁️ Cloud Management",
+      "affiliateProgram": "👥 Affiliate Program"
+    },
+    "featuresGrid": {
+      "proprietaryBackend": "Backend Fintech Proprietario",
+      "proprietaryBackendDesc": "Piattaforma rivoluzionaria di elaborazione pagamenti con capacità AI integrate, pronta per la certificazione PCI-DSS e integrazione POS globale.",
+      "advancedSecurity": "Sicurezza TLS 1.2+ e crittografia avanzata",
+      "completeAudit": "Audit completo per conformità PCI-DSS",
+      "nativeAndroidSDK": "SDK Android nativo per POS",
+      "debitCardManagement": "Gestione Carte di Debito",
+      "debitCardManagementDesc": "Sistema completo di gestione carte di debito con dashboard amministrativa avanzata e motore commissioni dinamico.",
+      "advancedDashboard": "Dashboard amministrativa avanzata",
+      "dynamicCommissionEngine": "Motore commissioni dinamico",
+      "cloudManagement": "Cloud Management",
+      "cloudManagementDesc": "Gestione unificata di servizi cloud multi-provider con monitoraggio costi in tempo reale e configurazione API centralizzata.",
+      "multiProviderSupport": "Supporto multi-provider (AWS, Azure, Google Cloud)",
+      "realTimeCostMonitoring": "Monitoraggio costi in tempo reale",
+      "centralizedAPIConfig": "Configurazione API centralizzata",
+      "affiliateProgram": "Affiliate Program",
+      "affiliateProgramDesc": "Sistema di affiliazione avanzato con tracking multi-livello e dashboard dedicata agli affiliati.",
+      "advancedReferralTracking": "Tracking referral avanzato",
+      "multiLevelCommissions": "Commissioni multi-livello",
+      "dedicatedAffiliateDashboard": "Dashboard dedicata affiliati"
+    },
+    "dashboardPreview": {
+      "title": "Anteprima Dashboard Amministrativo Completo",
+      "description": "Interfaccia completa per la gestione del gateway di pagamento con AI integrata"
+    },
+    "newFeatures": {
+      "title": "Nuove Funzionalità Avanzate",
+      "description": "Scopri le ultime innovazioni integrate nella piattaforma: gestione cloud multi-provider e sistema di affiliazione completo.",
+      "cloudManagement": {
+        "title": "Cloud Management Dashboard",
+        "subtitle": "Gestione unificata di servizi cloud",
+        "totalServers": "Server Totali",
+        "monthlyCosts": "Costi Mensili",
+        "securityScore": "Security Score",
+        "performance": "Performance",
+        "awsAzureGoogleIntegrated": "AWS, Azure, Google Cloud integrati",
+        "realTimeCostMonitoring": "Monitoraggio costi in tempo reale",
+        "centralizedAPIConfig": "Configurazione API centralizzata"
+      },
+      "affiliateProgram": {
+        "title": "Affiliate Program",
+        "subtitle": "Sistema di affiliazione avanzato",
+        "totalReferrals": "Referral Totali",
+        "totalEarnings": "Guadagni Totali",
+        "activationRate": "Tasso Attivazione",
+        "thisMonth": "Questo Mese",
+        "multiLevelReferralTracking": "Tracking referral multi-livello",
+        "customizableCommissions": "Commissioni personalizzabili",
+        "dedicatedAffiliateDashboard": "Dashboard dedicato affiliati"
+      }
+    },
+    "demoCredentials": {
+      "title": "Credenziali Demo",
+      "adminDashboard": "Dashboard Admin",
+      "merchantDashboard": "Dashboard Merchant",
+      "cloudManagement": "Cloud Management",
+      "affiliateProgram": "Affiliate Program",
+      "email": "Email",
+      "password": "Password"
+    },
+    "androidPOSPreview": {
+      "title": "Anteprima POS Android",
+      "subtitle": "Interfaccia POS Mobile",
+      "description": "Prova l'interfaccia del terminale di pagamento Android con simulazione completa delle transazioni.",
+      "viewDemo": "Visualizza Demo"
+    },
+    "nativeApps": {
+      "title": "App Native Multi-Piattaforma",
+      "description": "Disponibile come applicazione nativa per macOS (Intel & Apple Silicon), Windows e web. Progetto open source disponibile su GitHub con build ottimizzate per ogni piattaforma.",
+      "macOSUniversal": {
+        "title": "macOS Universal",
+        "description": "Build ottimizzate per processori Intel x64 e Apple Silicon (M1/M2/M3). Interfaccia nativa macOS con supporto Dark Mode.",
+        "appleSilicon": "Apple Silicon (ARM64)",
+        "intelX64": "Intel x64",
+        "nativeMacOSUI": "Native macOS UI"
+      },
+      "windowsNative": {
+        "title": "Windows Native",
+        "description": "Applicazione nativa Windows con installer NSIS. Supporto per architetture x64 e x86 (32-bit).",
+        "windowsX64": "Windows x64",
+        "windowsX86": "Windows x86 (32-bit)",
+        "nsisInstaller": "NSIS Installer"
+      },
+      "webApplication": {
+        "title": "Web Application",
+        "description": "Versione web responsive accessibile da qualsiasi browser moderno. PWA con supporto offline.",
+        "progressiveWebApp": "Progressive Web App",
+        "responsiveDesign": "Responsive Design",
+        "crossBrowser": "Cross-Browser"
+      }
+    },
+    "openSource": {
+      "title": "Open Source su GitHub",
+      "subtitle": "Progetto completamente open source con documentazione completa",
+      "automatedBuilds": {
+        "title": "🚀 Build Automatizzate",
+        "description": "Script build.sh incluso per generare tutte le versioni con un solo comando. Supporto GitHub Actions per CI/CD."
+      },
+      "completeDocumentation": {
+        "title": "📚 Documentazione Completa",
+        "description": "README dettagliati per ogni piattaforma, guide di installazione e documentazione API completa."
+      },
+      "viewOnGitHub": "Visualizza su GitHub",
+      "gitClone": "git clone https://github.com/andreapianidev/OpenGatewayAI.git"
+    },
+    "footer": {
+      "title": "OpenGatewayAI - Open Source Payment Gateway",
+      "availableOnGitHub": "Disponibile su GitHub",
+      "createdBy": "🚀 Created by",
+      "developedBy": "Sviluppato da Immaginet Srl"
+    }
   },
   "androidPreview": {
     "title": "Anteprima Android POS",

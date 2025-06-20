@@ -7,6 +7,7 @@ import Backend from 'i18next-http-backend';
 import enTranslations from './locales/en.json';
 import itTranslations from './locales/it.json';
 import arTranslations from './locales/ar.json';
+import syTranslations from './locales/sy.json';
 
 // Translation resources
 const resources = {
@@ -18,6 +19,9 @@ const resources = {
   },
   ar: {
     translation: arTranslations
+  },
+  sy: {
+    translation: syTranslations
   }
 };
 

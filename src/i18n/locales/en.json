@@ -661,21 +661,134 @@
     "transactionLimitIncrease": "Transaction limit increase request"
   },
   "landing": {
-    "title": "Payment Gateway",
+    "title": "Smart Payment Gateway",
     "subtitle": "with Integrated AI",
-    "description": "Open Source Payment Gateway with AI-powered analytics and fraud detection. Secure backend, advanced dashboards, integration with local banking processors.",
+    "mainTitle": "Payment Gateway Fintech",
+    "heroSubtitle": "for Android POS and Debit Cards",
+    "heroDescription": "Complete fintech platform with multi-provider cloud management and advanced affiliate program. Secure backend, advanced dashboards, integration with local bank processors.",
     "accessDemo": "Access Demo",
     "androidPreview": "Android POS Preview",
-    "proprietaryBackend": "Proprietary Backend",
-    "proprietaryBackendDesc": "Revolutionary payment processing platform with integrated AI capabilities, ready for PCI-DSS certification and global POS integration.",
-    "advancedSecurity": "Advanced TLS 1.2+ security and cryptography",
-    "completeAudit": "Complete audit log for compliance",
-    "merchantManagement": "Merchant Management",
-    "merchantManagementDesc": "Complete control over merchant onboarding, personalized commissions and real-time transaction monitoring.",
-    "advancedDashboard": "Advanced administrative dashboard",
-    "dynamicFeeEngine": "Dynamic fee engine",
-    "dashboardTitle": "Administrative Dashboard",
-    "dashboardDescription": "Complete interface for payment gateway management with integrated AI"
+    "features": {
+      "androidPOS": "🤖 Android POS",
+      "debitCards": "💳 Debit Cards",
+      "fintechSolution": "🏦 Fintech Solution",
+      "aiAnalytics": "🧠 AI Analytics",
+      "windowsNative": "🪟 Windows Native",
+      "macOSUniversal": "🍎 macOS Universal",
+      "cloudManagement": "☁️ Cloud Management",
+      "affiliateProgram": "👥 Affiliate Program"
+    },
+    "featuresGrid": {
+      "proprietaryBackend": "Proprietary Fintech Backend",
+      "proprietaryBackendDesc": "Revolutionary payment processing platform with integrated AI capabilities, ready for PCI-DSS certification and global POS integration.",
+      "advancedSecurity": "TLS 1.2+ security and advanced encryption",
+      "completeAudit": "Complete audit log for PCI-DSS compliance",
+      "nativeAndroidSDK": "Native Android SDK for POS",
+      "debitCardManagement": "Debit Card Management",
+      "debitCardManagementDesc": "Comprehensive debit card management system with advanced administrative dashboard and dynamic commission engine.",
+      "advancedDashboard": "Advanced administrative dashboard",
+      "dynamicCommissionEngine": "Dynamic commission engine",
+      "cloudManagement": "Cloud Management",
+      "cloudManagementDesc": "Unified management of multi-provider cloud services with real-time cost monitoring and centralized API configuration.",
+      "multiProviderSupport": "Multi-provider support (AWS, Azure, Google Cloud)",
+      "realTimeCostMonitoring": "Real-time cost monitoring",
+      "centralizedAPIConfig": "Centralized API configuration",
+      "affiliateProgram": "Affiliate Program",
+      "affiliateProgramDesc": "Advanced referral system with multi-level tracking and dedicated affiliate dashboard.",
+      "advancedReferralTracking": "Advanced referral tracking",
+      "multiLevelCommissions": "Multi-level commissions",
+      "dedicatedAffiliateDashboard": "Dedicated affiliate dashboard"
+    },
+    "dashboardPreview": {
+      "title": "Complete Administrative Dashboard Preview",
+      "description": "Complete interface for payment gateway management with integrated AI"
+    },
+    "newFeatures": {
+      "title": "New Advanced Features",
+      "description": "Discover the latest innovations integrated into the platform: multi-provider cloud management and complete affiliate system.",
+      "cloudManagement": {
+        "title": "Cloud Management Dashboard",
+        "subtitle": "Unified cloud services management",
+        "totalServers": "Total Servers",
+        "monthlyCosts": "Monthly Costs",
+        "securityScore": "Security Score",
+        "performance": "Performance",
+        "awsAzureGoogleIntegrated": "AWS, Azure, Google Cloud integrated",
+        "realTimeCostMonitoring": "Real-time cost monitoring",
+        "centralizedAPIConfig": "Centralized API configuration"
+      },
+      "affiliateProgram": {
+        "title": "Affiliate Program",
+        "subtitle": "Advanced referral system",
+        "totalReferrals": "Total Referrals",
+        "totalEarnings": "Total Earnings",
+        "activationRate": "Activation Rate",
+        "thisMonth": "This Month",
+        "multiLevelReferralTracking": "Multi-level referral tracking",
+        "customizableCommissions": "Customizable commissions",
+        "dedicatedAffiliateDashboard": "Dedicated affiliate dashboard"
+      }
+    },
+    "demoCredentials": {
+      "title": "Demo Credentials",
+      "adminDashboard": "Admin Dashboard",
+      "merchantDashboard": "Merchant Dashboard",
+      "cloudManagement": "Cloud Management",
+      "affiliateProgram": "Affiliate Program",
+      "email": "Email",
+      "password": "Password"
+    },
+    "androidPOSPreview": {
+      "title": "Android POS Preview",
+      "subtitle": "Mobile POS Interface",
+      "description": "Try the Android payment terminal interface with complete transaction simulation.",
+      "viewDemo": "View Demo"
+    },
+    "nativeApps": {
+      "title": "Multi-Platform Native Apps",
+      "description": "Available as native application for macOS (Intel & Apple Silicon), Windows and web. Open source project available on GitHub with optimized builds for each platform.",
+      "macOSUniversal": {
+        "title": "macOS Universal",
+        "description": "Optimized builds for Intel x64 and Apple Silicon (M1/M2/M3) processors. Native macOS interface with Dark Mode support.",
+        "appleSilicon": "Apple Silicon (ARM64)",
+        "intelX64": "Intel x64",
+        "nativeMacOSUI": "Native macOS UI"
+      },
+      "windowsNative": {
+        "title": "Windows Native",
+        "description": "Native Windows application with NSIS installer. Support for x64 and x86 (32-bit) architectures.",
+        "windowsX64": "Windows x64",
+        "windowsX86": "Windows x86 (32-bit)",
+        "nsisInstaller": "NSIS Installer"
+      },
+      "webApplication": {
+        "title": "Web Application",
+        "description": "Responsive web version accessible from any modern browser. PWA with offline support.",
+        "progressiveWebApp": "Progressive Web App",
+        "responsiveDesign": "Responsive Design",
+        "crossBrowser": "Cross-Browser"
+      }
+    },
+    "openSource": {
+      "title": "Open Source on GitHub",
+      "subtitle": "Completely open source project with complete documentation",
+      "automatedBuilds": {
+        "title": "🚀 Automated Builds",
+        "description": "Included build.sh script to generate all versions with a single command. GitHub Actions support for CI/CD."
+      },
+      "completeDocumentation": {
+        "title": "📚 Complete Documentation",
+        "description": "Detailed READMEs for each platform, installation guides and complete API documentation."
+      },
+      "viewOnGitHub": "View on GitHub",
+      "gitClone": "git clone https://github.com/andreapianidev/OpenGatewayAI.git"
+    },
+    "footer": {
+      "title": "OpenGatewayAI - Open Source Payment Gateway",
+      "availableOnGitHub": "Available on GitHub",
+      "createdBy": "🚀 Created by",
+      "developedBy": "Developed by Immaginet Srl"
+    }
   },
   "androidPreview": {
     "title": "Android POS Preview",
