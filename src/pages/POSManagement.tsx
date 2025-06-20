@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import FinancialDashboard from '../components/pos/FinancialDashboard';
 import POSDeviceManagement from '../components/pos/POSDeviceManagement';
 import DebitCardManagement from '../components/pos/DebitCardManagement';
 import CardProviderManagement from '../components/pos/CardProviderManagement';
 import AdvancedAnalytics from '../components/pos/AdvancedAnalytics';
-import FinancialDashboard from '../components/pos/FinancialDashboard';
 import PaymentProviderHub from '../components/pos/PaymentProviderHub';
 import {
   POSDevice,
@@ -403,19 +403,19 @@ const POSManagement: React.FC = () => {
       id: `pos-${Date.now()}`
     };
     setPosDevices(prev => [...prev, newDevice]);
-    addToLog(`Nuovo dispositivo aggiunto: ${newDevice.name}`);
+    addToLog(`${t('pos.newDeviceAdded')}: ${newDevice.name}`);
   };
 
   const updateDevice = (deviceId: string, updates: Partial<POSDevice>) => {
     setPosDevices(prev => prev.map(device => 
       device.id === deviceId ? { ...device, ...updates } : device
     ));
-    addToLog(`Dispositivo ${deviceId} aggiornato`);
+    addToLog(`${t('pos.deviceUpdated')}: ${deviceId}`);
   };
 
   const removeDevice = (deviceId: string) => {
     setPosDevices(prev => prev.filter(device => device.id !== deviceId));
-    addToLog(`Dispositivo ${deviceId} rimosso`);
+    addToLog(`${t('pos.deviceRemoved')}: ${deviceId}`);
   };
 
   const restartDevice = (deviceId: string) => {
@@ -423,7 +423,7 @@ const POSManagement: React.FC = () => {
     setTimeout(() => {
       updateDevice(deviceId, { status: 'online' });
     }, 3000);
-    addToLog(`Dispositivo ${deviceId} riavviato`);
+    addToLog(`${t('pos.deviceRestarted')}: ${deviceId}`);
   };
 
   const simulateCardTransaction = () => {
@@ -483,6 +483,7 @@ const POSManagement: React.FC = () => {
       id: `tx-${Date.now()}`,
       posId,
       amount: Math.round(amount * 100) / 100,
+      type: Math.random() > 0.95 ? 'refund' : Math.random() > 0.98 ? 'void' : 'sale',
       paymentMethod: Math.random() > 0.7 ? 'cash' : 'card',
       status: Math.random() > 0.95 ? 'failed' : 'completed',
       timestamp: new Date().toISOString(),
@@ -513,8 +514,8 @@ const POSManagement: React.FC = () => {
       const alertInsight: AIInsight = {
         id: `insight-${Date.now()}`,
         type: 'alert',
-        title: 'Transazione ad Alto Rischio',
-        description: `Transazione di €${newTransaction.amount.toFixed(2)} con risk score ${(riskScore * 100).toFixed(0)}%`,
+        title: t('pos.highRiskTransaction'),
+        description: `${t('pos.transactionWith')} €${newTransaction.amount.toFixed(2)} ${t('pos.withRiskScore')} ${(riskScore * 100).toFixed(0)}%`,
         impact: 'high',
         confidence: 90,
         timestamp: new Date().toISOString(),
@@ -523,7 +524,7 @@ const POSManagement: React.FC = () => {
       setAiInsights(prev => [alertInsight, ...prev.slice(0, 4)]);
     }
 
-    addToLog(`Transazione simulata su ${pos.name}: €${newTransaction.amount.toFixed(2)}`);
+    addToLog(`${t('pos.simulatedTransaction')} ${t('pos.simulatedOn')} ${pos.name}: €${newTransaction.amount.toFixed(2)}`);
   };
 
   return (
@@ -547,7 +548,7 @@ const POSManagement: React.FC = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Dashboard Finanziaria
+{t('pos.financialDashboard')}
               </button>
               <button
                 onClick={() => setActiveTab('devices')}
@@ -557,7 +558,7 @@ const POSManagement: React.FC = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Gestione POS
+                {t('pos.posManagement')}
               </button>
               <button
                 onClick={() => setActiveTab('cards')}
@@ -567,7 +568,7 @@ const POSManagement: React.FC = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Gestione Carte
+                {t('pos.cardManagement')}
               </button>
               <button
                 onClick={() => setActiveTab('providers')}
@@ -577,7 +578,7 @@ const POSManagement: React.FC = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Provider Carte
+                {t('pos.cardProviders')}
               </button>
               <button
                 onClick={() => setActiveTab('analytics')}
@@ -587,7 +588,7 @@ const POSManagement: React.FC = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Analytics AI
+                {t('pos.aiAnalytics')}
               </button>
               <button
                 onClick={() => setActiveTab('hub')}
@@ -597,7 +598,7 @@ const POSManagement: React.FC = () => {
                     : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                 }`}
               >
-                Hub Pagamenti
+                {t('pos.paymentHub')}
               </button>
             </nav>
           </div>
@@ -660,12 +661,12 @@ const POSManagement: React.FC = () => {
                 <span className="text-white font-bold text-lg">AP</span>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">Sviluppato da Andrea Piani</h3>
-                <p className="text-sm text-gray-600">Fintech Developer & Payment Systems Specialist</p>
+                <h3 className="text-lg font-semibold text-gray-900">{t('pos.developedBy')}</h3>
+                <p className="text-sm text-gray-600">{t('pos.fintechDeveloper')}</p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm text-gray-600 mb-2">Hai bisogno di un backend personalizzato?</p>
+              <p className="text-sm text-gray-600 mb-2">{t('pos.needCustomBackend')}</p>
               <a 
                 href="mailto:andreapiai.dev@gmail.com?subject=Richiesta Backend Personalizzato - POS Management" 
                 className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
@@ -673,7 +674,7 @@ const POSManagement: React.FC = () => {
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                Contattami
+                {t('pos.contactMe')}
               </a>
             </div>
           </div>
@@ -682,19 +683,19 @@ const POSManagement: React.FC = () => {
               <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              API Integration
+              {t('pos.apiIntegration')}
             </div>
             <div className="flex items-center text-gray-600">
               <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              Database Design
+              {t('pos.databaseDesign')}
             </div>
             <div className="flex items-center text-gray-600">
               <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-              Security Implementation
+              {t('pos.securityImplementation')}
             </div>
           </div>
         </div>

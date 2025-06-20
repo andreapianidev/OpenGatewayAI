@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 import { TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Clock, Zap } from 'lucide-react';
 
@@ -39,6 +40,7 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
   timeRange = '24h',
   onAlertClick
 }) => {
+  const { t } = useTranslation();
   const [performanceData, setPerformanceData] = useState<PerformanceMetric[]>([]);
   const [alerts, setAlerts] = useState<CloudAlert[]>([]);
   const [serviceHealth, setServiceHealth] = useState<ServiceHealth[]>([]);
@@ -168,28 +170,28 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
           <div className="flex items-center space-x-3">
             <Zap className="h-8 w-8 text-purple-600" />
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Monitoraggio Performance Cloud</h2>
-              <p className="text-gray-600">Analytics in tempo reale dell'infrastruttura</p>
+              <h2 className="text-2xl font-bold text-gray-900">{t('cloudPerformance.title')}</h2>
+              <p className="text-gray-600">{t('cloudPerformance.description')}</p>
             </div>
           </div>
           <div className="text-sm text-gray-500">
-            Sviluppato da Andrea Piani - andrea.piani@email.com
+            {t('cloudPerformance.developedBy')}
           </div>
         </div>
 
         {/* Selettore metriche */}
         <div className="flex items-center space-x-4">
-          <label className="text-sm font-medium text-gray-700">Metrica:</label>
+          <label className="text-sm font-medium text-gray-700">{t('cloudPerformance.metric')}</label>
           <select
             value={selectedMetric}
             onChange={(e) => setSelectedMetric(e.target.value)}
             className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
-            <option value="cpuUsage">CPU Usage (%)</option>
-            <option value="memoryUsage">Memory Usage (%)</option>
-            <option value="diskUsage">Disk Usage (%)</option>
-            <option value="responseTime">Response Time (ms)</option>
-            <option value="errorRate">Error Rate (%)</option>
+            <option value="cpuUsage">{t('cloudPerformance.cpuUsage')}</option>
+            <option value="memoryUsage">{t('cloudPerformance.memoryUsage')}</option>
+            <option value="diskUsage">{t('cloudPerformance.diskUsage')}</option>
+            <option value="responseTime">{t('cloudPerformance.responseTime')}</option>
+            <option value="errorRate">{t('cloudPerformance.errorRate')}</option>
           </select>
         </div>
       </div>
@@ -199,11 +201,11 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
         {/* Grafico lineare principale */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            {selectedMetric === 'cpuUsage' && 'Utilizzo CPU'}
-            {selectedMetric === 'memoryUsage' && 'Utilizzo Memoria'}
-            {selectedMetric === 'diskUsage' && 'Utilizzo Disco'}
-            {selectedMetric === 'responseTime' && 'Tempo di Risposta'}
-            {selectedMetric === 'errorRate' && 'Tasso di Errore'}
+            {selectedMetric === 'cpuUsage' && t('cloudPerformance.cpuUsageTitle')}
+            {selectedMetric === 'memoryUsage' && t('cloudPerformance.memoryUsageTitle')}
+            {selectedMetric === 'diskUsage' && t('cloudPerformance.diskUsageTitle')}
+            {selectedMetric === 'responseTime' && t('cloudPerformance.responseTimeTitle')}
+            {selectedMetric === 'errorRate' && t('cloudPerformance.errorRateTitle')}
           </h3>
           <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={chartData}>
@@ -224,7 +226,7 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
 
         {/* Stato servizi */}
         <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Stato Servizi</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudPerformance.serviceStatus')}</h3>
           <div className="flex items-center justify-center mb-4">
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
@@ -251,7 +253,7 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
                 <span className="text-sm font-medium text-gray-900">{service.service}</span>
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getHealthColor(service.status)}`}>
-                    {service.status}
+                    {t(`cloudPerformance.${service.status}`)}
                   </span>
                   <span className="text-xs text-gray-500">{service.uptime.toFixed(1)}%</span>
                 </div>
@@ -263,7 +265,7 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
 
       {/* Network Traffic */}
       <div className="bg-white p-6 rounded-lg shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Traffico di Rete</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudPerformance.networkTraffic')}</h3>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -278,7 +280,7 @@ const CloudPerformanceMonitoring: React.FC<CloudPerformanceMonitoringProps> = ({
 
       {/* Alert recenti */}
       <div className="bg-white p-6 rounded-lg shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Alert Recenti</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudPerformance.recentAlerts')}</h3>
         <div className="space-y-3">
           {alerts.slice(0, 6).map((alert) => (
             <div

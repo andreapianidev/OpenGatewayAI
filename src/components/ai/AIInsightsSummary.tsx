@@ -1,71 +1,73 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Brain, TrendingUp, Shield, Zap, Users, CreditCard, AlertTriangle, CheckCircle, BarChart3, Sparkles } from 'lucide-react';
 
 const AIInsightsSummary: React.FC = () => {
+  const { t } = useTranslation();
   const [isTyping, setIsTyping] = useState(true);
   const [currentText, setCurrentText] = useState('');
   const [showFullContent, setShowFullContent] = useState(false);
 
-  const fullText = `Ciao! Sono DeepSeek AI, l'intelligenza artificiale integrata nel primo gateway di pagamento al mondo con AI nativa. 
+  const fullText = `${t('aiInsights.greeting')} 
 
-Ho analizzato la situazione attuale del vostro sistema e posso fornirvi insights preziosi:`;
+${t('aiInsights.analysisIntro')}`;
 
   const insights = [
     {
       icon: TrendingUp,
-      title: "Performance Eccellente",
-      description: "Il sistema sta processando €544k con un tasso di successo del 98.7%. Volume in crescita del +12% rispetto alla settimana scorsa.",
+      title: t('aiInsights.excellentPerformance'),
+      description: t('aiInsights.performanceDescription'),
       color: "text-green-600",
       bgColor: "bg-green-50",
       trend: "+12%"
     },
     {
       icon: Shield,
-      title: "Sicurezza Avanzata",
-      description: "I nostri algoritmi ML hanno bloccato 23 tentativi di frode nelle ultime 24h, proteggendo €67k di transazioni potenzialmente rischiose.",
+      title: t('aiInsights.advancedSecurity'),
+      description: t('aiInsights.securityDescription'),
       color: "text-blue-600",
       bgColor: "bg-blue-50",
-      trend: "23 blocchi"
+      trend: `23 ${t('aiInsights.blocks')}`
     },
     {
       icon: Zap,
-      title: "Ottimizzazione Automatica",
-      description: "Ho ottimizzato automaticamente i routing di pagamento, riducendo i tempi di risposta del 15% e aumentando il tasso di approvazione.",
+      title: t('aiInsights.automaticOptimization'),
+      description: t('aiInsights.optimizationDescription'),
       color: "text-purple-600",
       bgColor: "bg-purple-50",
-      trend: "-15% latenza"
+      trend: `-15% ${t('aiInsights.latency')}`
     },
     {
       icon: Users,
-      title: "Esperienza Merchant",
-      description: "I merchant stanno beneficiando di commissioni ridotte del 8% grazie all'ottimizzazione AI dei circuiti di pagamento.",
+      title: t('aiInsights.merchantExperience'),
+      description: t('aiInsights.merchantDescription'),
       color: "text-orange-600",
       bgColor: "bg-orange-50",
-      trend: "-8% commissioni"
+      trend: `-8% ${t('aiInsights.fees')}`
     }
   ];
 
   const recommendations = [
     {
-      priority: "Alta",
-      title: "Espansione Geografica",
-      description: "Consiglio di attivare i pagamenti in Medio Oriente: ho rilevato 156 tentativi di pagamento da quella regione.",
-      action: "Attiva nuovi mercati",
-      impact: "€45k potenziali mensili"
+      priority: t('aiInsights.high'),
+      title: t('aiInsights.geographicExpansion'),
+      description: t('aiInsights.geographicDescription'),
+      action: t('aiInsights.activateNewMarkets'),
+      impact: `€45k ${t('aiInsights.potentialMonthly')}`
     },
     {
-      priority: "Media",
-      title: "Ottimizzazione Oraria",
-      description: "Suggerisco di aumentare la capacità tra le 12-16, quando il volume cresce del 340%.",
-      action: "Scala risorse",
-      impact: "Riduzione errori del 23%"
+      priority: t('aiInsights.medium'),
+      title: t('aiInsights.hourlyOptimization'),
+      description: t('aiInsights.hourlyDescription'),
+      action: t('aiInsights.scaleResources'),
+      impact: `${t('aiInsights.errorReduction')} 23%`
     },
     {
-      priority: "Bassa",
-      title: "Nuovi Metodi di Pagamento",
-      description: "Apple Pay sta crescendo (+8% settimanale). Consiglio di promuoverlo attivamente.",
-      action: "Campagna marketing",
-      impact: "€12k incrementali"
+      priority: t('aiInsights.low'),
+      title: t('aiInsights.newPaymentMethods'),
+      description: t('aiInsights.paymentMethodsDescription'),
+      action: t('aiInsights.marketingCampaign'),
+      impact: `€12k ${t('aiInsights.incremental')}`
     }
   ];
 
@@ -98,12 +100,12 @@ Ho analizzato la situazione attuale del vostro sistema e posso fornirvi insights
             DeepSeek AI Assistant
             <Sparkles className="w-5 h-5 ml-2 text-yellow-500" />
           </h2>
-          <p className="text-sm text-indigo-600 font-medium">Primo Gateway con AI Integrata • Analisi in Tempo Reale</p>
+          <p className="text-sm text-indigo-600 font-medium">{t('aiInsights.firstGatewayWithAI')}</p>
         </div>
         <div className="ml-auto">
           <div className="flex items-center space-x-2 bg-green-100 px-3 py-1 rounded-full">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-xs font-medium text-green-700">AI Attiva</span>
+            <span className="text-xs font-medium text-green-700">{t('aiInsights.aiActive')}</span>
           </div>
         </div>
       </div>
@@ -154,7 +156,7 @@ Ho analizzato la situazione attuale del vostro sistema e posso fornirvi insights
           <div className="bg-white rounded-lg p-6 border border-gray-200">
             <div className="flex items-center space-x-2 mb-4">
               <BarChart3 className="w-5 h-5 text-indigo-600" />
-              <h3 className="text-lg font-semibold text-gray-900">Raccomandazioni AI</h3>
+              <h3 className="text-lg font-semibold text-gray-900">{t('aiInsights.aiRecommendations')}</h3>
             </div>
             <div className="space-y-4">
               {recommendations.map((rec, index) => (
@@ -185,23 +187,23 @@ Ho analizzato la situazione attuale del vostro sistema e posso fornirvi insights
           <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg p-6 text-white">
             <h3 className="text-lg font-semibold mb-4 flex items-center">
               <Zap className="w-5 h-5 mr-2" />
-              Funzionalità AI Avanzate
+              {t('aiInsights.advancedAIFeatures')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="text-center">
                 <Shield className="w-8 h-8 mx-auto mb-2 opacity-90" />
-                <h4 className="font-medium mb-1">Fraud Detection</h4>
-                <p className="text-xs opacity-80">ML in tempo reale per rilevare frodi</p>
+                <h4 className="font-medium mb-1">{t('aiInsights.fraudDetection')}</h4>
+                <p className="text-xs opacity-80">{t('aiInsights.fraudDetectionDesc')}</p>
               </div>
               <div className="text-center">
                 <TrendingUp className="w-8 h-8 mx-auto mb-2 opacity-90" />
-                <h4 className="font-medium mb-1">Predictive Analytics</h4>
-                <p className="text-xs opacity-80">Previsioni di volume e performance</p>
+                <h4 className="font-medium mb-1">{t('aiInsights.predictiveAnalytics')}</h4>
+                <p className="text-xs opacity-80">{t('aiInsights.predictiveAnalyticsDesc')}</p>
               </div>
               <div className="text-center">
                 <CreditCard className="w-8 h-8 mx-auto mb-2 opacity-90" />
-                <h4 className="font-medium mb-1">Smart Routing</h4>
-                <p className="text-xs opacity-80">Ottimizzazione automatica dei circuiti</p>
+                <h4 className="font-medium mb-1">{t('aiInsights.smartRouting')}</h4>
+                <p className="text-xs opacity-80">{t('aiInsights.smartRoutingDesc')}</p>
               </div>
             </div>
           </div>
@@ -211,13 +213,13 @@ Ho analizzato la situazione attuale del vostro sistema e posso fornirvi insights
             <div className="flex items-center space-x-3">
               <CheckCircle className="w-6 h-6 text-green-600" />
               <div>
-                <p className="font-medium text-green-900">Sistema AI Operativo</p>
-                <p className="text-sm text-green-700">Monitoraggio attivo • Ultima analisi: 2 minuti fa</p>
+                <p className="font-medium text-green-900">{t('aiInsights.aiSystemOperational')}</p>
+                <p className="text-sm text-green-700">{t('aiInsights.activeMonitoring')}</p>
               </div>
             </div>
             <div className="text-right">
               <p className="text-lg font-bold text-green-600">99.9%</p>
-              <p className="text-xs text-green-700">Uptime AI</p>
+              <p className="text-xs text-green-700">{t('aiInsights.aiUptime')}</p>
             </div>
           </div>
         </div>

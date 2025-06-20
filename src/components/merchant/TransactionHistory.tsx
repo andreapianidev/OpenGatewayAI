@@ -24,7 +24,7 @@ const TransactionHistory: React.FC = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      showSimulatedNotification('📊 Transazioni esportate con successo! Download avviato...');
+      showSimulatedNotification('📊 ' + t('transactions.exportSuccess'));
       // Simula il download
       const csvData = filteredTransactions.map(t => 
         `${t.id},${t.amount},${t.customer},${t.status},${t.timestamp}`
@@ -37,9 +37,9 @@ const TransactionHistory: React.FC = () => {
   };
 
   const handleViewTransaction = (transactionId: string) => {
-    showSimulatedNotification(`👁️ Apertura dettagli transazione ${transactionId}...`);
+    showSimulatedNotification(`👁️ ${t('transactions.openingDetails')} ${transactionId}...`);
     setTimeout(() => {
-      showSimulatedNotification(`📋 Dettagli transazione ${transactionId} caricati con successo!`);
+      showSimulatedNotification(`📋 ${t('transactions.detailsLoaded')} ${transactionId}!`);
     }, 1000);
   };
 
@@ -47,7 +47,7 @@ const TransactionHistory: React.FC = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      showSimulatedNotification('🔄 Lista transazioni aggiornata con successo!');
+      showSimulatedNotification('🔄 ' + t('transactions.refreshSuccess'));
     }, 1500);
   };
 
@@ -58,7 +58,7 @@ const TransactionHistory: React.FC = () => {
       fee: 6.88,
       net: 238.62,
       customer: 'Cliente #4521',
-      paymentMethod: 'Carta di Credito',
+      paymentMethod: t('paymentMethods.creditCard'),
       status: 'completed',
       timestamp: '2024-01-15 14:23:12',
       reference: 'REF001'
@@ -69,7 +69,7 @@ const TransactionHistory: React.FC = () => {
       fee: 2.52,
       net: 87.38,
       customer: 'Cliente #4522',
-      paymentMethod: 'Carta di Debito',
+      paymentMethod: t('paymentMethods.debitCard'),
       status: 'completed',
       timestamp: '2024-01-15 12:45:33',
       reference: 'REF002'
@@ -80,7 +80,7 @@ const TransactionHistory: React.FC = () => {
       fee: 4.39,
       net: 152.36,
       customer: 'Cliente #4523',
-      paymentMethod: 'Contactless',
+      paymentMethod: t('paymentMethods.contactless'),
       status: 'pending',
       timestamp: '2024-01-15 11:20:15',
       reference: 'REF003'
@@ -91,7 +91,7 @@ const TransactionHistory: React.FC = () => {
       fee: 8.96,
       net: 311.04,
       customer: 'Cliente #4524',
-      paymentMethod: 'Carta di Credito',
+      paymentMethod: t('paymentMethods.creditCard'),
       status: 'completed',
       timestamp: '2024-01-15 09:15:42',
       reference: 'REF004'
@@ -102,7 +102,7 @@ const TransactionHistory: React.FC = () => {
       fee: 1.88,
       net: 65.37,
       customer: 'Cliente #4525',
-      paymentMethod: 'Mobile Payment',
+      paymentMethod: t('paymentMethods.digitalWallet'),
       status: 'completed',
       timestamp: '2024-01-14 18:30:21',
       reference: 'REF005'
@@ -113,7 +113,7 @@ const TransactionHistory: React.FC = () => {
       fee: 11.92,
       net: 413.88,
       customer: 'Cliente #4526',
-      paymentMethod: 'Carta di Credito',
+      paymentMethod: t('paymentMethods.creditCard'),
       status: 'failed',
       timestamp: '2024-01-14 16:45:18',
       reference: 'REF006'
@@ -189,7 +189,7 @@ const TransactionHistory: React.FC = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40">
           <div className="bg-white rounded-lg p-6 flex items-center space-x-3">
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-indigo-600"></div>
-            <span className="text-gray-700">Elaborazione in corso...</span>
+            <span className="text-gray-700">{t('common.loading')}</span>
           </div>
         </div>
       )}
@@ -205,7 +205,7 @@ const TransactionHistory: React.FC = () => {
           className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <Download className="w-5 h-5" />
-          <span>{isLoading ? 'Esportazione...' : t('common.exportCSV')}</span>
+          <span>{isLoading ? t('transactions.exporting') : t('common.exportCSV')}</span>
         </button>
       </div>
 
@@ -239,7 +239,7 @@ const TransactionHistory: React.FC = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
-                placeholder="Cerca transazioni..."
+                placeholder={t('common.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent w-64"
@@ -253,10 +253,10 @@ const TransactionHistory: React.FC = () => {
                 onChange={(e) => setSelectedFilter(e.target.value)}
                 className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               >
-                <option value="all">{t('merchant.allStates')}</option>
-                <option value="completed">Completate</option>
-                <option value="pending">In Corso</option>
-                <option value="failed">Fallite</option>
+                <option value="all">{t('common.all')}</option>
+                <option value="completed">{t('status.completed')}</option>
+                <option value="pending">{t('status.pending')}</option>
+                <option value="failed">{t('status.failed')}</option>
               </select>
             </div>
 
@@ -267,16 +267,16 @@ const TransactionHistory: React.FC = () => {
                 onChange={(e) => setDateFilter(e.target.value)}
                 className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
               >
-                <option value="today">Oggi</option>
-                <option value="last7days">Ultimi 7 giorni</option>
-                <option value="last30days">Ultimi 30 giorni</option>
-                <option value="last3months">Ultimi 3 mesi</option>
+                <option value="today">{t('periods.today')}</option>
+                <option value="last7days">{t('common.last7Days')}</option>
+                <option value="last30days">{t('common.last30Days')}</option>
+                <option value="last3months">{t('common.last3Months')}</option>
               </select>
             </div>
           </div>
 
           <div className="text-sm text-gray-500">
-            {filteredTransactions.length} transazioni trovate
+            {filteredTransactions.length} {t('transactions.transactionsFound')}
           </div>
         </div>
       </div>
@@ -288,28 +288,28 @@ const TransactionHistory: React.FC = () => {
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Transazione
+                  {t('transactions.transaction')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Cliente
+                  {t('transactions.customer')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Importo
+                  {t('common.amount')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Commissione
+                  {t('transactions.fee')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Netto
+                  {t('dashboard.netAmount')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Metodo
+                  {t('transactions.paymentMethod')}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Status
+                  {t('common.status')}
                 </th>
                 <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Azioni
+                  {t('common.actions')}
                 </th>
               </tr>
             </thead>
@@ -367,17 +367,17 @@ const TransactionHistory: React.FC = () => {
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-sm text-gray-500">
-            Mostrando 1-{filteredTransactions.length} di {filteredTransactions.length} risultati
+            {t('common.showing')} 1-{filteredTransactions.length} {t('common.of')} {filteredTransactions.length} {t('common.results')}
           </div>
           <div className="flex items-center space-x-2">
             <button className="px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50 transition-colors duration-200">
-              Precedente
+              {t('common.previous')}
             </button>
             <button className="px-3 py-1 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700 transition-colors duration-200">
               1
             </button>
             <button className="px-3 py-1 border border-gray-300 rounded text-sm hover:bg-gray-50 transition-colors duration-200">
-              Successivo
+              {t('common.next')}
             </button>
           </div>
         </div>

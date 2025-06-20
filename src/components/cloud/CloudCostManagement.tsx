@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, ComposedChart, Area, AreaChart } from 'recharts';
 import { DollarSign, TrendingUp, TrendingDown, AlertCircle, Calculator, PieChart as PieChartIcon, Target } from 'lucide-react';
 
@@ -52,6 +53,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
   onCostAlertClick,
   onOptimizationSuggestion
 }) => {
+  const { t } = useTranslation();
   const [costData, setCostData] = useState<CostData[]>([]);
   const [serviceCosts, setServiceCosts] = useState<ServiceCost[]>([]);
   const [costAlerts, setCostAlerts] = useState<CostAlert[]>([]);
@@ -125,7 +127,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
       return Array.from({ length: 6 }, (_, i) => ({
         id: `alert-${i + 1}`,
         type: alertTypes[Math.floor(Math.random() * alertTypes.length)],
-        message: `Costo anomalo rilevato per ${services[i % services.length]}`,
+        message: `${t('cloudCosts.anomalousAlert')} ${services[i % services.length]}`,
         amount: Math.random() * 1000 + 100,
         service: services[i % services.length],
         severity: severities[Math.floor(Math.random() * severities.length)]
@@ -229,8 +231,8 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
           <div className="flex items-center space-x-3">
             <DollarSign className="h-8 w-8 text-green-600" />
             <div>
-              <h2 className="text-2xl font-bold text-gray-900">Gestione Costi Cloud</h2>
-              <p className="text-gray-600">Monitoraggio e ottimizzazione dei costi multi-cloud</p>
+              <h2 className="text-2xl font-bold text-gray-900">{t('cloudCosts.title')}</h2>
+              <p className="text-gray-600">{t('cloudCosts.subtitle')}</p>
             </div>
           </div>
           <div className="text-sm text-gray-500">
@@ -248,7 +250,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            Panoramica
+            {t('cloudCosts.overview')}
           </button>
           <button
             onClick={() => setSelectedView('services')}
@@ -258,7 +260,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            Servizi
+            {t('cloudCosts.services')}
           </button>
           <button
             onClick={() => setSelectedView('forecast')}
@@ -268,7 +270,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
-            Previsioni
+            {t('cloudCosts.forecast')}
           </button>
         </div>
       </div>
@@ -278,7 +280,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
         <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 rounded-lg text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-green-100">Costo Totale</p>
+              <p className="text-green-100">{t('cloudCosts.totalCost')}</p>
               <p className="text-2xl font-bold">${totalCost.toFixed(2)}</p>
             </div>
             <DollarSign className="h-8 w-8 text-green-200" />
@@ -288,7 +290,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
         <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 rounded-lg text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-blue-100">Media Giornaliera</p>
+              <p className="text-blue-100">{t('cloudCosts.dailyAverage')}</p>
               <p className="text-2xl font-bold">${avgDailyCost.toFixed(2)}</p>
             </div>
             <Calculator className="h-8 w-8 text-blue-200" />
@@ -298,7 +300,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
         <div className="bg-gradient-to-r from-purple-500 to-purple-600 p-4 rounded-lg text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-purple-100">Proiezione Mensile</p>
+              <p className="text-purple-100">{t('cloudCosts.monthlyProjection')}</p>
               <p className="text-2xl font-bold">${projectedMonthlyCost.toFixed(2)}</p>
             </div>
             <Target className="h-8 w-8 text-purple-200" />
@@ -308,7 +310,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
         <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-4 rounded-lg text-white">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-orange-100">Alert Attivi</p>
+              <p className="text-orange-100">{t('cloudCosts.activeAlerts')}</p>
               <p className="text-2xl font-bold">{costAlerts.length}</p>
             </div>
             <AlertCircle className="h-8 w-8 text-orange-200" />
@@ -320,7 +322,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Grafico costi nel tempo */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Andamento Costi</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudCosts.costTrend')}</h3>
             <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={costData}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -334,7 +336,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
 
           {/* Distribuzione per provider */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Distribuzione per Provider</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudCosts.providerDistribution')}</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -358,17 +360,17 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
 
       {selectedView === 'services' && (
         <div className="bg-white p-6 rounded-lg shadow-sm">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Costi per Servizio</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudCosts.serviceCosts')}</h3>
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Servizio</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Provider</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoria</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Costo Attuale</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Trend</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Variazione</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t('cloudCosts.service')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t('cloudCosts.provider')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t('cloudCosts.category')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t('cloudCosts.currentCost')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t('cloudCosts.trend')}</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{t('cloudCosts.variation')}</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -404,22 +406,22 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Previsioni costi */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Previsioni Costi</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudCosts.costForecasts')}</h3>
             <ResponsiveContainer width="100%" height={300}>
               <ComposedChart data={costData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" tickFormatter={(date) => new Date(date).toLocaleDateString('it-IT', { month: 'short', day: 'numeric' })} />
                 <YAxis />
                 <Tooltip />
-                <Bar dataKey="total" fill="#10B981" name="Costo Effettivo" />
-                <Line type="monotone" dataKey="forecast" stroke="#F59E0B" strokeDasharray="5 5" name="Previsione" />
+                <Bar dataKey="total" fill="#10B981" name={t('cloudCosts.actualCost')} />
+                <Line type="monotone" dataKey="forecast" stroke="#F59E0B" strokeDasharray="5 5" name={t('cloudCosts.forecastCost')} />
               </ComposedChart>
             </ResponsiveContainer>
           </div>
 
           {/* Budget status */}
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Stato Budget</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudCosts.budgetStatus')}</h3>
             <div className="space-y-4">
               {budgets.map((budget) => {
                 const percentage = (budget.spent / budget.limit) * 100;
@@ -431,8 +433,8 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
                     </div>
                     <div className="mb-2">
                       <div className="flex justify-between text-sm text-gray-600">
-                        <span>${budget.spent.toFixed(2)} spesi</span>
-                        <span>${budget.limit.toFixed(2)} limite</span>
+                        <span>${budget.spent.toFixed(2)} {t('cloudCosts.spent')}</span>
+                        <span>${budget.limit.toFixed(2)} {t('cloudCosts.limit')}</span>
                       </div>
                       <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
                         <div
@@ -444,7 +446,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
                       </div>
                     </div>
                     <div className="text-sm text-gray-600">
-                      {percentage.toFixed(1)}% del budget utilizzato
+                      {percentage.toFixed(1)}% {t('cloudCosts.budgetUsed')}
                     </div>
                   </div>
                 );
@@ -456,7 +458,7 @@ const CloudCostManagement: React.FC<CloudCostManagementProps> = ({
 
       {/* Alert costi */}
       <div className="bg-white p-6 rounded-lg shadow-sm">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">Alert Costi</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">{t('cloudCosts.costAlerts')}</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {costAlerts.map((alert) => (
             <div
