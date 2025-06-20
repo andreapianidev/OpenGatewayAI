@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { CreditCard, Shield, BarChart3, Users, ArrowRight, CheckCircle, Smartphone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../components/LanguageSelector';
-import { ASSETS } from '../config/urls';
 
 const LandingPage: React.FC = () => {
   const { t } = useTranslation();
@@ -112,7 +111,7 @@ const LandingPage: React.FC = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
             <div className="bg-white rounded-xl p-4 shadow-2xl">
               <img 
-                src={ASSETS.HOME_IMAGE} 
+                src="https://opengatewayai.andreapiani.com/home1.png" 
                 alt="Dashboard Admin Preview" 
                 className="w-full h-auto rounded-lg"
               />

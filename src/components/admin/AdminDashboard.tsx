@@ -10,8 +10,12 @@ import AdminSettings from './AdminSettings';
 import AIAnalytics from '../ai/AIAnalytics';
 import FraudDetection from '../ai/FraudDetection';
 import RealTimeMonitoring from '../ai/RealTimeMonitoring';
-import PredictiveAnalytics from '../ai/PredictiveAnalytics';
+
 import MerchantLocationsPage from '../../pages/MerchantLocationsPage';
+import POSManagement from '../../pages/POSManagement';
+import SyrianRegulations from '../../pages/SyrianRegulations';
+import SyrianBanking from '../../pages/SyrianBanking';
+import SyrianExchange from '../../pages/SyrianExchange';
 
 const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -36,10 +40,16 @@ const AdminDashboard: React.FC = () => {
           <Route path="/ai-analytics" element={<AIAnalytics />} />
           <Route path="/fraud-detection" element={<FraudDetection />} />
           <Route path="/real-time-monitoring" element={<RealTimeMonitoring />} />
-          <Route path="/predictive-analytics" element={<PredictiveAnalytics />} />
+
           
           {/* Merchant Locations */}
           <Route path="/merchant-locations" element={<MerchantLocationsPage />} />
+          
+          {/* POS Management */}
+          <Route path="/pos-management" element={<POSManagement />} />
+          <Route path="/syrian-regulations" element={<SyrianRegulations />} />
+          <Route path="/syrian-banking" element={<SyrianBanking />} />
+          <Route path="/syrian-exchange" element={<SyrianExchange />} />
         </Routes>
       </div>
     </div>

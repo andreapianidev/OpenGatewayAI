@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Save, User, Building, CreditCard, Bell, Shield, Key, Code, Zap, BarChart3, Palette, Globe } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import DashboardAIWidget from '../ai/DashboardAIWidget';
-import { DEFAULT_MERCHANT_URLS, WEBHOOKS } from '../../config/urls';
 
 const AccountSettings: React.FC = () => {
   const [activeTab, setActiveTab] = useState('profile');
@@ -19,7 +18,7 @@ const AccountSettings: React.FC = () => {
     postalCode: '12345',
     taxId: 'SY123456789',
     businessType: 'retail',
-    website: DEFAULT_MERCHANT_URLS.WEBSITE
+    website: 'https://damascusstore.sy'
   };
 
   const bankingInfo = {
@@ -39,7 +38,7 @@ const AccountSettings: React.FC = () => {
 
   const apiSettings = {
     apiKey: 'sk_live_51H7...',
-    webhookUrl: DEFAULT_MERCHANT_URLS.WEBHOOK,
+    webhookUrl: 'https://damascusstore.sy/webhook',
     webhookSecret: 'whsec_1234...',
     rateLimitPerHour: 1000,
     enableSandbox: true
@@ -392,7 +391,7 @@ const AccountSettings: React.FC = () => {
                 <h4 className="font-medium text-gray-900 mb-2">Webhook URL</h4>
                 <input
                   type="url"
-                  placeholder={WEBHOOKS.BASE}
+                  placeholder="https://yoursite.com/webhook"
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
                 <p className="text-xs text-gray-500 mt-1">
@@ -531,7 +530,7 @@ const AccountSettings: React.FC = () => {
                     type="url"
                     value={apiSettings.webhookUrl}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    placeholder={WEBHOOKS.BASE}
+                    placeholder="https://tuosito.com/webhook"
                   />
                 </div>
                 <div>
@@ -736,7 +735,7 @@ const AccountSettings: React.FC = () => {
                     type="url"
                     value={customizationSettings.logoUrl}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    placeholder={DEFAULT_MERCHANT_URLS.LOGO}
+                    placeholder="https://tuosito.com/logo.png"
                   />
                 </div>
                 <div>

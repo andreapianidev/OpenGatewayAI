@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, ComposedChart } from 'recharts';
 import { Shield, AlertTriangle, Eye, Clock, MapPin, CreditCard, User, TrendingUp, CheckCircle, XCircle, AlertCircle, Filter, Search, Download, Brain, Settings, Bell, RefreshCw, Zap, Target, Activity, Globe, Users, DollarSign } from 'lucide-react';
 
@@ -62,7 +62,7 @@ interface RealTimeAlert {
   autoBlocked: boolean;
 }
 
-const FraudDetection: React.FC = memo(() => {
+const FraudDetection: React.FC = () => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('24h');
   const [filterStatus, setFilterStatus] = useState('all');
   const [isLoading, setIsLoading] = useState(true);
@@ -1030,8 +1030,6 @@ const FraudDetection: React.FC = memo(() => {
       </div>
     </div>
   );
-});
-
-FraudDetection.displayName = 'FraudDetection';
+};
 
 export default FraudDetection;

@@ -1,9 +1,8 @@
-import React, { useState, memo } from 'react';
+import React, { useState } from 'react';
 import { Save, Shield, Database, Bell, Globe, Key, Server, BarChart3, Zap, Monitor } from 'lucide-react';
 import DashboardAIWidget from '../ai/DashboardAIWidget';
-import { API_ENDPOINTS, WEBHOOKS } from '../../config/urls';
 
-const SystemSettings: React.FC = memo(() => {
+const SystemSettings: React.FC = () => {
   const [activeTab, setActiveTab] = useState('security');
   const [systemHealth, setSystemHealth] = useState({
     cpu: 45,
@@ -46,7 +45,7 @@ const SystemSettings: React.FC = memo(() => {
     paypalEnabled: true,
     squareEnabled: false,
     adyenEnabled: false,
-    apiEndpoint: API_ENDPOINTS.MAIN,
+    apiEndpoint: 'https://api.example.com',
     merchantId: 'MERCHANT_123',
     apiKey: '****',
     timeout: 30,
@@ -535,7 +534,7 @@ const SystemSettings: React.FC = memo(() => {
                         type="url"
                         value={integrationSettings.apiEndpoint}
                         onChange={(e) => setIntegrationSettings({...integrationSettings, apiEndpoint: e.target.value})}
-                        placeholder={API_ENDPOINTS.PROCESSOR}
+                        placeholder="https://api.opengateway.ai/processor"
                         className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                       />
                     </div>
@@ -609,21 +608,21 @@ const SystemSettings: React.FC = memo(() => {
                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                       <div>
                         <p className="font-medium text-gray-900">Transaction Success</p>
-                        <p className="text-sm text-gray-500">{WEBHOOKS.SUCCESS}</p>
+                        <p className="text-sm text-gray-500">https://yourapp.com/webhook/success</p>
                       </div>
                       <span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Attivo</span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                       <div>
                         <p className="font-medium text-gray-900">Transaction Failed</p>
-                        <p className="text-sm text-gray-500">{WEBHOOKS.FAILED}</p>
+                        <p className="text-sm text-gray-500">https://yourapp.com/webhook/failed</p>
                       </div>
                       <span className="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Attivo</span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-white rounded-lg">
                       <div>
                         <p className="font-medium text-gray-900">Refund Processed</p>
-                        <p className="text-sm text-gray-500">{WEBHOOKS.REFUND}</p>
+                        <p className="text-sm text-gray-500">https://yourapp.com/webhook/refund</p>
                       </div>
                       <span className="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">Test</span>
                     </div>
@@ -1064,8 +1063,6 @@ const SystemSettings: React.FC = memo(() => {
       </div>
     </div>
   );
-});
-
-SystemSettings.displayName = 'SystemSettings';
+};
 
 export default SystemSettings;

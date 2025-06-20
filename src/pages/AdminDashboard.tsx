@@ -12,8 +12,9 @@ import AISettings from '../components/admin/AISettings';
 import AIAnalytics from '../components/ai/AIAnalytics';
 import FraudDetection from '../components/ai/FraudDetection';
 import RealTimeMonitoring from '../components/ai/RealTimeMonitoring';
-import PredictiveAnalytics from '../components/ai/PredictiveAnalytics';
+
 import MerchantLocationsPage from './MerchantLocationsPage';
+import POSManagement from './POSManagement';
 
 const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -37,8 +38,9 @@ const AdminDashboard: React.FC = () => {
             <Route path="/ai-analytics" element={<AIAnalytics />} />
             <Route path="/fraud-detection" element={<FraudDetection />} />
             <Route path="/real-time-monitoring" element={<RealTimeMonitoring />} />
-            <Route path="/predictive-analytics" element={<PredictiveAnalytics />} />
+
             <Route path="/merchant-locations" element={<MerchantLocationsPage />} />
+            <Route path="/pos-management" element={<POSManagement />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Routes>
         </main>

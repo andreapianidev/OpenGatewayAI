@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Settings, Shield, Bell, Globe, Database, Key, Users, Mail, Save, RefreshCw } from 'lucide-react';
-import { SITE_CONFIG, WEBHOOKS } from '../../config/urls';
+import { Settings, Shield, Bell, Globe, Database, Key, Users, Mail, Save, RefreshCw, Zap, Link, Smartphone, CreditCard, Webhook, Code, CheckCircle, AlertCircle, Clock, BarChart3 } from 'lucide-react';
 
 interface SettingsSection {
   id: string;
@@ -15,9 +14,9 @@ const AdminSettings: React.FC = () => {
   const [activeSection, setActiveSection] = useState('general');
   const [settings, setSettings] = useState({
     general: {
-      siteName: SITE_CONFIG.NAME,
-      siteUrl: SITE_CONFIG.URL,
-      adminEmail: SITE_CONFIG.ADMIN_EMAIL,
+      siteName: 'OpenGateway AI',
+      siteUrl: 'https://opengatewayai.com',
+      adminEmail: 'admin@opengatewayai.com',
       timezone: 'Europe/Rome',
       language: 'it',
       maintenanceMode: false
@@ -45,6 +44,65 @@ const AdminSettings: React.FC = () => {
       apiKey: '••••••••••••••••',
       enableLogging: true,
       logLevel: 'info'
+    },
+    integrations: {
+      stripe: {
+        enabled: true,
+        publicKey: 'pk_test_••••••••••••••••',
+        secretKey: 'sk_test_••••••••••••••••',
+        webhookSecret: 'whsec_••••••••••••••••',
+        status: 'connected'
+      },
+      paypal: {
+        enabled: false,
+        clientId: '',
+        clientSecret: '',
+        sandbox: true,
+        status: 'disconnected'
+      },
+      square: {
+        enabled: true,
+        applicationId: 'sq0idp-••••••••••••••••',
+        accessToken: 'EAAAl••••••••••••••',
+        locationId: 'L••••••••••••••',
+        status: 'connected'
+      },
+      adyen: {
+        enabled: false,
+        merchantAccount: '',
+        apiKey: '',
+        clientKey: '',
+        environment: 'test',
+        status: 'disconnected'
+      },
+      sms: {
+        provider: 'twilio',
+        enabled: true,
+        accountSid: 'AC••••••••••••••••',
+        authToken: '••••••••••••••••',
+        fromNumber: '+1234567890',
+        status: 'connected'
+      },
+      email: {
+        provider: 'sendgrid',
+        enabled: true,
+        apiKey: 'SG.••••••••••••••••',
+        fromEmail: 'noreply@opengatewayai.com',
+        fromName: 'OpenGateway AI',
+        status: 'connected'
+      },
+      analytics: {
+        googleAnalytics: {
+          enabled: true,
+          trackingId: 'GA-••••••••••',
+          status: 'connected'
+        },
+        mixpanel: {
+          enabled: false,
+          projectToken: '',
+          status: 'disconnected'
+        }
+      }
     },
     payment: {
       defaultCurrency: 'EUR',
@@ -77,9 +135,15 @@ const AdminSettings: React.FC = () => {
     },
     {
       id: 'api',
-      title: 'API & Integrazione',
+      title: 'API & Webhook',
       icon: <Database className="w-5 h-5" />,
       description: 'Configurazioni API e webhook'
+    },
+    {
+      id: 'integrations',
+      title: 'Integrazioni',
+      icon: <Zap className="w-5 h-5" />,
+      description: 'Gestione integrazioni di terze parti'
     },
     {
       id: 'payment',
@@ -91,15 +155,14 @@ const AdminSettings: React.FC = () => {
 
   const handleSave = () => {
     // Simulate save operation
-    // TODO: Implement proper logging service
+    console.log('Settings saved:', settings);
     alert('Impostazioni salvate con successo!');
   };
 
   const handleReset = () => {
     if (confirm('Sei sicuro di voler ripristinare le impostazioni predefinite?')) {
       // Reset to default values
-      // TODO: Implement proper logging service
-      alert('Impostazioni ripristinate ai valori predefiniti!');
+      console.log('Settings reset to defaults');
     }
   };
 
@@ -311,7 +374,7 @@ const AdminSettings: React.FC = () => {
               ...prev,
               api: { ...prev.api, webhookUrl: e.target.value }
             }))}
-            placeholder={WEBHOOKS.BASE}
+            placeholder="https://your-webhook-url.com/webhook"
           />
         </div>
       </div>
@@ -395,12 +458,378 @@ const AdminSettings: React.FC = () => {
     </div>
   );
 
+  const renderIntegrationsSettings = () => {
+    const getStatusIcon = (status: string) => {
+      switch (status) {
+        case 'connected': return <CheckCircle className="w-4 h-4 text-green-500" />;
+        case 'disconnected': return <AlertCircle className="w-4 h-4 text-red-500" />;
+        case 'pending': return <Clock className="w-4 h-4 text-yellow-500" />;
+        default: return <AlertCircle className="w-4 h-4 text-gray-500" />;
+      }
+    };
+
+    const getStatusText = (status: string) => {
+      switch (status) {
+        case 'connected': return 'Connesso';
+        case 'disconnected': return 'Disconnesso';
+        case 'pending': return 'In attesa';
+        default: return 'Sconosciuto';
+      }
+    };
+
+    return (
+      <div className="space-y-8">
+        {/* Payment Gateways */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <CreditCard className="w-5 h-5 mr-2" />
+            Gateway di Pagamento
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Stripe */}
+            <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <CreditCard className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Stripe</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.stripe.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.stripe.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.stripe.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        stripe: { ...prev.integrations.stripe, enabled: e.target.checked }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <label className="block text-xs font-medium text-gray-700 mb-1">Public Key</label>
+                  <input
+                    type="text"
+                    className="w-full text-xs border rounded px-2 py-1 bg-gray-50"
+                    value={settings.integrations.stripe.publicKey}
+                    readOnly
+                  />
+                </div>
+                <button className="w-full bg-blue-600 text-white text-sm py-2 rounded hover:bg-blue-700 transition-colors">
+                  Configura Stripe
+                </button>
+              </div>
+            </div>
+
+            {/* PayPal */}
+            <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+                    <CreditCard className="w-5 h-5 text-yellow-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">PayPal</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.paypal.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.paypal.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.paypal.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        paypal: { ...prev.integrations.paypal, enabled: e.target.checked }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <button className="w-full bg-yellow-600 text-white text-sm py-2 rounded hover:bg-yellow-700 transition-colors">
+                Connetti PayPal
+              </button>
+            </div>
+
+            {/* Square */}
+            <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                    <Smartphone className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Square</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.square.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.square.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.square.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        square: { ...prev.integrations.square, enabled: e.target.checked }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <button className="w-full bg-green-600 text-white text-sm py-2 rounded hover:bg-green-700 transition-colors">
+                Gestisci Square
+              </button>
+            </div>
+
+            {/* Adyen */}
+            <div className="border rounded-lg p-6 hover:shadow-md transition-shadow">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                    <CreditCard className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Adyen</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.adyen.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.adyen.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.adyen.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        adyen: { ...prev.integrations.adyen, enabled: e.target.checked }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <button className="w-full bg-purple-600 text-white text-sm py-2 rounded hover:bg-purple-700 transition-colors">
+                Configura Adyen
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Communication Services */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <Mail className="w-5 h-5 mr-2" />
+            Servizi di Comunicazione
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* SMS Service */}
+            <div className="border rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <Smartphone className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">SMS (Twilio)</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.sms.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.sms.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.sms.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        sms: { ...prev.integrations.sms, enabled: e.target.checked }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <div className="text-sm text-gray-600 mb-3">
+                Numero: {settings.integrations.sms.fromNumber}
+              </div>
+              <button className="w-full bg-blue-600 text-white text-sm py-2 rounded hover:bg-blue-700 transition-colors">
+                Configura SMS
+              </button>
+            </div>
+
+            {/* Email Service */}
+            <div className="border rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                    <Mail className="w-5 h-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Email (SendGrid)</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.email.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.email.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.email.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        email: { ...prev.integrations.email, enabled: e.target.checked }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <div className="text-sm text-gray-600 mb-3">
+                Da: {settings.integrations.email.fromEmail}
+              </div>
+              <button className="w-full bg-green-600 text-white text-sm py-2 rounded hover:bg-green-700 transition-colors">
+                Configura Email
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Analytics */}
+        <div>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <BarChart3 className="w-5 h-5 mr-2" />
+            Analytics
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Google Analytics */}
+            <div className="border rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                    <BarChart3 className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Google Analytics</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.analytics.googleAnalytics.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.analytics.googleAnalytics.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.analytics.googleAnalytics.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        analytics: {
+                          ...prev.integrations.analytics,
+                          googleAnalytics: { ...prev.integrations.analytics.googleAnalytics, enabled: e.target.checked }
+                        }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <div className="text-sm text-gray-600 mb-3">
+                ID: {settings.integrations.analytics.googleAnalytics.trackingId}
+              </div>
+              <button className="w-full bg-orange-600 text-white text-sm py-2 rounded hover:bg-orange-700 transition-colors">
+                Configura GA
+              </button>
+            </div>
+
+            {/* Mixpanel */}
+            <div className="border rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                    <BarChart3 className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900">Mixpanel</h4>
+                    <div className="flex items-center text-sm">
+                      {getStatusIcon(settings.integrations.analytics.mixpanel.status)}
+                      <span className="ml-1 text-gray-600">{getStatusText(settings.integrations.analytics.mixpanel.status)}</span>
+                    </div>
+                  </div>
+                </div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="sr-only peer"
+                    checked={settings.integrations.analytics.mixpanel.enabled}
+                    onChange={(e) => setSettings(prev => ({
+                      ...prev,
+                      integrations: {
+                        ...prev.integrations,
+                        analytics: {
+                          ...prev.integrations.analytics,
+                          mixpanel: { ...prev.integrations.analytics.mixpanel, enabled: e.target.checked }
+                        }
+                      }
+                    }))}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+              </div>
+              <button className="w-full bg-purple-600 text-white text-sm py-2 rounded hover:bg-purple-700 transition-colors">
+                Connetti Mixpanel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   const renderContent = () => {
     switch (activeSection) {
       case 'general': return renderGeneralSettings();
       case 'security': return renderSecuritySettings();
       case 'notifications': return renderNotificationSettings();
       case 'api': return renderApiSettings();
+      case 'integrations': return renderIntegrationsSettings();
       case 'payment': return renderPaymentSettings();
       default: return renderGeneralSettings();
     }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Brain, Server, Cloud, Key, Settings, TestTube, Save, RotateCcw, CheckCircle, XCircle, Loader } from 'lucide-react';
-import { AI_ENDPOINTS, EXTERNAL_DOCS } from '../../config/urls';
 
 type AIProvider = 'deepseek' | 'openai' | 'mistral' | 'ollama' | 'anthropic';
 
@@ -25,7 +24,7 @@ const AISettings: React.FC = () => {
   const [lastTest, setLastTest] = useState<Date | null>(null);
   const [testResult, setTestResult] = useState<'success' | 'error' | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [ollamaHost, setOllamaHost] = useState(AI_ENDPOINTS.OLLAMA);
+  const [ollamaHost, setOllamaHost] = useState('http://localhost:11434');
   const [temperature, setTemperature] = useState(0.7);
   const [maxTokens, setMaxTokens] = useState(4000);
   const [timeoutValue, setTimeoutValue] = useState(30);
@@ -34,7 +33,7 @@ const AISettings: React.FC = () => {
     deepseek: {
       name: 'DeepSeek AI',
       icon: '🧠',
-      endpoint: AI_ENDPOINTS.DEEPSEEK,
+      endpoint: 'https://api.deepseek.com/v1',
       models: ['deepseek-chat', 'deepseek-coder', 'deepseek-math'],
       requiresApiKey: true,
       description: 'Modelli AI avanzati per analisi e coding'
@@ -42,7 +41,7 @@ const AISettings: React.FC = () => {
     openai: {
       name: 'OpenAI ChatGPT',
       icon: '🤖',
-      endpoint: AI_ENDPOINTS.OPENAI,
+      endpoint: 'https://api.openai.com/v1',
       models: ['gpt-4', 'gpt-4-turbo', 'gpt-3.5-turbo', 'gpt-4o'],
       requiresApiKey: true,
       description: 'Modelli GPT di OpenAI per conversazioni e analisi'
@@ -50,7 +49,7 @@ const AISettings: React.FC = () => {
     mistral: {
       name: 'Mistral AI',
       icon: '🌪️',
-      endpoint: AI_ENDPOINTS.MISTRAL,
+      endpoint: 'https://api.mistral.ai/v1',
       models: ['mistral-large', 'mistral-medium', 'mistral-small', 'mistral-tiny'],
       requiresApiKey: true,
       description: 'Modelli AI europei ad alte prestazioni'
@@ -58,7 +57,7 @@ const AISettings: React.FC = () => {
     anthropic: {
       name: 'Anthropic Claude',
       icon: '🎭',
-      endpoint: AI_ENDPOINTS.ANTHROPIC,
+      endpoint: 'https://api.anthropic.com/v1',
       models: ['claude-3-opus', 'claude-3-sonnet', 'claude-3-haiku'],
       requiresApiKey: true,
       description: 'Modelli Claude per conversazioni sicure e utili'
@@ -103,7 +102,7 @@ const AISettings: React.FC = () => {
 
   const handleReset = () => {
     setApiKey('');
-    setEndpoint(AI_ENDPOINTS.DEEPSEEK);
+    setEndpoint('https://api.deepseek.com/v1');
     setModel('deepseek-chat');
     setIsEnabled(false);
     setIsConnected(false);
@@ -280,7 +279,7 @@ const AISettings: React.FC = () => {
                   disabled={!isEnabled}
                 />
                 <p className="mt-1 text-sm text-gray-600">
-                  Assicurati che Ollama sia in esecuzione localmente. <a href={EXTERNAL_DOCS.OLLAMA_DOWNLOAD} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Scarica Ollama</a>
+                  Assicurati che Ollama sia in esecuzione localmente. <a href="https://ollama.ai" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Scarica Ollama</a>
                 </p>
               </div>
             )}
@@ -307,16 +306,16 @@ const AISettings: React.FC = () => {
                 </div>
                 <p className="mt-1 text-sm text-gray-600">
                   {provider === 'openai' && (
-                    <>Ottieni la tua API key da <a href={EXTERNAL_DOCS.OPENAI_PLATFORM} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">OpenAI Platform</a></>
+                    <>Ottieni la tua API key da <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">OpenAI Platform</a></>
                   )}
                   {provider === 'mistral' && (
-                    <>Ottieni la tua API key da <a href={EXTERNAL_DOCS.MISTRAL_CONSOLE} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Mistral Console</a></>
+                    <>Ottieni la tua API key da <a href="https://console.mistral.ai" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Mistral Console</a></>
                   )}
                   {provider === 'anthropic' && (
-                    <>Ottieni la tua API key da <a href={EXTERNAL_DOCS.ANTHROPIC_CONSOLE} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Anthropic Console</a></>
+                    <>Ottieni la tua API key da <a href="https://console.anthropic.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Anthropic Console</a></>
                   )}
                   {provider === 'deepseek' && (
-                    <>Ottieni la tua API key da <a href={EXTERNAL_DOCS.DEEPSEEK_PLATFORM} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">DeepSeek Platform</a></>
+                    <>Ottieni la tua API key da <a href="https://platform.deepseek.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">DeepSeek Platform</a></>
                   )}
                 </p>
               </div>

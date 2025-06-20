@@ -139,9 +139,7 @@ const TransactionManagement: React.FC = () => {
 
   const totalVolume = filteredTransactions.reduce((sum, t) => sum + t.amount, 0);
   const totalFees = filteredTransactions.reduce((sum, t) => sum + t.fee, 0);
-  const successRate = filteredTransactions.length > 0 
-    ? (filteredTransactions.filter(t => t.status === 'completed').length / filteredTransactions.length * 100).toFixed(1)
-    : '0.0';
+  const successRate = (filteredTransactions.filter(t => t.status === 'completed').length / filteredTransactions.length * 100).toFixed(1);
 
   return (
     <div className="p-6 space-y-6">

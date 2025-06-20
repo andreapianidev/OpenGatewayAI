@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { MapPin, Store, TrendingUp, Users, Search, Filter, Eye, BarChart3, Activity, DollarSign, Clock, Navigation, Zap, Download, RefreshCw, AlertTriangle, CheckCircle, XCircle, Settings, Plus, Edit, Trash2, Phone, Mail, Calendar, Target, TrendingDown, Grid, ArrowUpDown, MoreVertical, CreditCard, Shield, AlertCircle, Info, Brain, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Store, TrendingUp, Users, Search, Filter, Eye, BarChart3, Activity, DollarSign, Clock, Navigation, Zap, Download, RefreshCw, AlertTriangle, CheckCircle, XCircle, Settings, Plus, Edit, Trash2, Phone, Mail, Calendar, Target, TrendingDown } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 
 interface POILocation {
@@ -255,11 +255,11 @@ const MerchantLocationsPage: React.FC = () => {
     setIsRefreshing(false);
   };
 
-  const exportData = useCallback((format: 'csv' | 'excel' | 'pdf') => {
+  const exportData = (format: 'csv' | 'excel' | 'pdf') => {
     // Simulate export functionality
     addNotification('success', `Data exported as ${format.toUpperCase()}`);
     setShowExportModal(false);
-  }, []);
+  };
 
   useEffect(() => {
     // Simulate real-time updates
@@ -1007,11 +1007,7 @@ const MerchantLocationsPage: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm text-gray-600">Avg Transaction Value</p>
-                  <p className="text-2xl font-bold text-gray-900">€{(() => {
-                    const totalTransactions = locations.reduce((sum, l) => sum + l.transactions, 0);
-                    const totalRevenue = locations.reduce((sum, l) => sum + l.revenue, 0);
-                    return totalTransactions > 0 ? (totalRevenue / totalTransactions).toFixed(2) : '0.00';
-                  })()}</p>
+                  <p className="text-2xl font-bold text-gray-900">€{(locations.reduce((sum, l) => sum + l.revenue, 0) / locations.reduce((sum, l) => sum + l.transactions, 0)).toFixed(2)}</p>
                   <p className="text-xs text-blue-600 flex items-center mt-1">
                     <TrendingUp className="w-3 h-3 mr-1" />
                     +8.5% vs last month

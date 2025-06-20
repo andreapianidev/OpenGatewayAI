@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import SecureStorage from '../utils/secureStorage';
 
 interface User {
   id: string;
@@ -35,21 +34,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   // Check for saved user on component mount
   useEffect(() => {
-    const savedUser = SecureStorage.getItem('opengateway_user');
-    const rememberFlag = SecureStorage.getItem('opengateway_remember');
+    const savedUser = localStorage.getItem('opengateway_user');
+    const rememberFlag = localStorage.getItem('opengateway_remember');
     
     // Only restore user if they chose "Remember me"
     if (savedUser && rememberFlag === 'true') {
       try {
         setUser(JSON.parse(savedUser));
       } catch (error) {
-        SecureStorage.removeItem('opengateway_user');
-      SecureStorage.removeItem('opengateway_remember');
+        localStorage.removeItem('opengateway_user');
+        localStorage.removeItem('opengateway_remember');
       }
     } else {
       // Clear any stale data if remember flag is not set
-      SecureStorage.removeItem('opengateway_user');
-      SecureStorage.removeItem('opengateway_remember');
+      localStorage.removeItem('opengateway_user');
+      localStorage.removeItem('opengateway_remember');
     }
   }, []);
 
@@ -79,11 +78,11 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       
       // Handle localStorage based on rememberMe preference
       if (rememberMe) {
-        SecureStorage.setItem('opengateway_user', JSON.stringify(userData));
-      SecureStorage.setItem('opengateway_remember', 'true');
+        localStorage.setItem('opengateway_user', JSON.stringify(userData));
+        localStorage.setItem('opengateway_remember', 'true');
       } else {
-        SecureStorage.removeItem('opengateway_user');
-    SecureStorage.removeItem('opengateway_remember');
+        localStorage.removeItem('opengateway_user');
+        localStorage.removeItem('opengateway_remember');
       }
       
       return true;
@@ -94,8 +93,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    SecureStorage.removeItem('opengateway_user');
-    SecureStorage.removeItem('opengateway_remember');
+    localStorage.removeItem('opengateway_user');
+    localStorage.removeItem('opengateway_remember');
   };
 
   const value = {
