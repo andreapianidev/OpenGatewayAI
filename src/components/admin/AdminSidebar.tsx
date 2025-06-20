@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { X, Home, Users, CreditCard, Settings, BarChart3, Percent, LogOut, Monitor, Wifi, AlertTriangle, Brain, Shield, TrendingUp, Activity, MapPin, Smartphone, Globe, DollarSign, Building2, FileText, Cloud, UserPlus } from 'lucide-react';
+import { X, Home, Users, CreditCard, Settings, BarChart3, Percent, LogOut, Monitor, Wifi, AlertTriangle, Brain, Shield, TrendingUp, Activity, MapPin, Smartphone, Globe, DollarSign, Building2, FileText, Cloud, UserPlus, TabletSmartphone } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface AdminSidebarProps {
@@ -178,6 +178,19 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ isOpen, onClose }) => {
             >
               <Smartphone className="w-5 h-5 mr-3" />
               {t('pos.management')}
+            </Link>
+            
+            <Link
+              to="android-config"
+              className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                isActive('android-config')
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-700'
+                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+              }`}
+              onClick={() => onClose()}
+            >
+              <TabletSmartphone className="w-5 h-5 mr-3" />
+              Configurazione Android
             </Link>
             
             <Link

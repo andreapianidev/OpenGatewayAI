@@ -188,6 +188,72 @@
       "maintenance": "صيانة"
     }
   },
+  "androidConfig": {
+    "title": "إعدادات تطبيق أندرويد",
+    "description": "إدارة إعدادات تطبيق نقاط البيع أندرويد",
+    "appStatus": "حالة التطبيق",
+    "active": "نشط",
+    "version": "الإصدار",
+    "build": "البناء",
+    "connectedDevices": "الأجهزة المتصلة",
+    "tabs": {
+      "general": "عام",
+      "security": "الأمان",
+      "notifications": "الإشعارات",
+      "appearance": "المظهر",
+      "connectivity": "الاتصال"
+    },
+    "general": {
+      "appName": "اسم التطبيق",
+      "version": "الإصدار",
+      "buildNumber": "رقم البناء",
+      "packageName": "اسم الحزمة",
+      "minSdkVersion": "الحد الأدنى لإصدار SDK",
+      "targetSdkVersion": "إصدار SDK المستهدف",
+      "buildInfo": "معلومات البناء",
+      "buildInfoDesc": "تتطلب التغييرات في الإصدار ورقم البناء إعادة تجميع التطبيق. تأكد من اختبار جميع الوظائف قبل الإصدار."
+    },
+    "security": {
+      "biometricAuth": "المصادقة البيومترية",
+      "pinLock": "قفل الرقم السري",
+      "dataEncryption": "تشفير البيانات",
+      "sessionTimeout": "انتهاء مهلة الجلسة (دقائق)",
+      "certificatePinning": "تثبيت الشهادة",
+      "criticalSecurity": "أمان حرج",
+      "securityWarning": "تؤثر إعدادات الأمان مباشرة على حماية بيانات المدفوعات. قم بالتعديل فقط إذا كنت تفهم الآثار الأمنية."
+    },
+    "notifications": {
+      "pushNotifications": "الإشعارات الفورية",
+      "transactionAlerts": "تنبيهات المعاملات",
+      "systemAlerts": "تنبيهات النظام",
+      "sound": "الصوت",
+      "vibration": "الاهتزاز"
+    },
+    "appearance": {
+      "theme": "السمة",
+      "light": "فاتح",
+      "dark": "داكن",
+      "auto": "تلقائي",
+      "primaryColor": "اللون الأساسي",
+      "secondaryColor": "اللون الثانوي",
+      "enableDarkMode": "تفعيل الوضع الداكن",
+      "customLogo": "شعار مخصص"
+    },
+    "connectivity": {
+      "apiEndpoint": "نقطة نهاية API",
+      "offlineMode": "الوضع غير المتصل",
+      "syncInterval": "فترة المزامنة (دقائق)",
+      "connectionTimeout": "انتهاء مهلة الاتصال"
+    },
+    "actions": {
+      "exportConfig": "تصدير الإعدادات",
+      "importConfig": "استيراد الإعدادات",
+      "saveConfig": "حفظ الإعدادات",
+      "saving": "جاري الحفظ...",
+      "savedSuccess": "تم الحفظ بنجاح",
+      "saveError": "خطأ في الحفظ"
+    }
+  },
   "merchant": {
     "monthlyCommissions": "عمولات الشهر",
     "averageCommissionApplied": "متوسط العمولة المطبقة",

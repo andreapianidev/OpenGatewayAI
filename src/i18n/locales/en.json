@@ -187,6 +187,72 @@
       "maintenance": "Maintenance"
     }
   },
+  "androidConfig": {
+    "title": "Android App Configuration",
+    "description": "Manage Android POS application settings",
+    "appStatus": "App Status",
+    "active": "Active",
+    "version": "Version",
+    "build": "Build",
+    "connectedDevices": "Connected Devices",
+    "tabs": {
+      "general": "General",
+      "security": "Security",
+      "notifications": "Notifications",
+      "appearance": "Appearance",
+      "connectivity": "Connectivity"
+    },
+    "general": {
+      "appName": "Application Name",
+      "version": "Version",
+      "buildNumber": "Build Number",
+      "packageName": "Package Name",
+      "minSdkVersion": "Min SDK Version",
+      "targetSdkVersion": "Target SDK Version",
+      "buildInfo": "Build Information",
+      "buildInfoDesc": "Changes to version and build number require a new application build. Make sure to test all features before release."
+    },
+    "security": {
+      "biometricAuth": "Biometric Authentication",
+      "pinLock": "PIN Lock",
+      "dataEncryption": "Data Encryption",
+      "sessionTimeout": "Session Timeout (minutes)",
+      "certificatePinning": "Certificate Pinning",
+      "criticalSecurity": "Critical Security",
+      "securityWarning": "Security settings directly affect payment data protection. Only modify if you understand the security implications."
+    },
+    "notifications": {
+      "pushNotifications": "Push Notifications",
+      "transactionAlerts": "Transaction Alerts",
+      "systemAlerts": "System Alerts",
+      "sound": "Sound",
+      "vibration": "Vibration"
+    },
+    "appearance": {
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "auto": "Auto",
+      "primaryColor": "Primary Color",
+      "secondaryColor": "Secondary Color",
+      "enableDarkMode": "Enable Dark Mode",
+      "customLogo": "Custom Logo"
+    },
+    "connectivity": {
+      "apiEndpoint": "API Endpoint",
+      "offlineMode": "Offline Mode",
+      "syncInterval": "Sync Interval (minutes)",
+      "connectionTimeout": "Connection Timeout"
+    },
+    "actions": {
+      "exportConfig": "Export Configuration",
+      "importConfig": "Import Configuration",
+      "saveConfig": "Save Configuration",
+      "saving": "Saving...",
+      "savedSuccess": "Saved successfully",
+      "saveError": "Error saving"
+    }
+  },
   "merchant": {
     "monthlyCommissions": "Monthly Commissions",
     "averageCommissionApplied": "Average commission applied",

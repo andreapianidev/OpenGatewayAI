@@ -17,6 +17,7 @@ import MerchantLocationsPage from './MerchantLocationsPage';
 import POSManagement from './POSManagement';
 import CloudManagement from './CloudManagement';
 import AffiliateProgram from './AffiliateProgram';
+import AndroidAppConfig from '../components/admin/AndroidAppConfig';
 
 const AdminDashboard: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -43,6 +44,7 @@ const AdminDashboard: React.FC = () => {
 
             <Route path="/merchant-locations" element={<MerchantLocationsPage />} />
             <Route path="/pos-management" element={<POSManagement />} />
+            <Route path="/android-config" element={<AndroidAppConfig />} />
             <Route path="/cloud-management" element={<CloudManagement />} />
             <Route path="/affiliate-program" element={<AffiliateProgram />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />

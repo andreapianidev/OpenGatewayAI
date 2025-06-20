@@ -1,11 +1,46 @@
 import React, { useState } from 'react';
-import { Save, Plus, Edit, Trash2, Percent, Users, Building } from 'lucide-react';
+import { Save, Plus, Edit, Trash2, Percent, Users, Building, X } from 'lucide-react';
 import DashboardAIWidget from '../ai/DashboardAIWidget';
+
+interface MerchantCommission {
+  id: string;
+  name: string;
+  category: string;
+  currentRate: number;
+  minAmount: number;
+  maxAmount: number;
+  monthlyVolume: number;
+}
+
+interface CategoryRule {
+  category: string;
+  baseRate: number;
+  volumeThreshold: number;
+  discountRate: number;
+  description: string;
+}
 
 const CommissionSettings: React.FC = () => {
   const [activeTab, setActiveTab] = useState('merchant');
+  const [showAddMerchantModal, setShowAddMerchantModal] = useState(false);
+  const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
+  const [newMerchant, setNewMerchant] = useState({
+    name: '',
+    category: '',
+    currentRate: 2.5,
+    minAmount: 0,
+    maxAmount: 10000,
+    monthlyVolume: 0
+  });
+  const [newCategory, setNewCategory] = useState({
+    category: '',
+    baseRate: 2.5,
+    volumeThreshold: 50000,
+    discountRate: 2.2,
+    description: ''
+  });
 
-  const merchantCommissions = [
+  const [merchantCommissions, setMerchantCommissions] = useState<MerchantCommission[]>([
     {
       id: 'MERCH001',
       name: 'Damascus Electronics',
@@ -42,9 +77,9 @@ const CommissionSettings: React.FC = () => {
       maxAmount: 3000,
       monthlyVolume: 28670
     }
-  ];
+  ]);
 
-  const categoryRules = [
+  const [categoryRules, setCategoryRules] = useState<CategoryRule[]>([
     {
       category: 'Elettronica',
       baseRate: 2.5,
@@ -80,7 +115,52 @@ const CommissionSettings: React.FC = () => {
       discountRate: 1.5,
       description: 'Tariffa preferenziale per grande distribuzione'
     }
-  ];
+  ]);
+
+  // Funzioni per gestire l'aggiunta di nuove regole
+  const handleAddMerchant = () => {
+    if (newMerchant.name && newMerchant.category) {
+      const newId = 'MERCH' + String(merchantCommissions.length + 1).padStart(3, '0');
+      setMerchantCommissions([...merchantCommissions, {
+        id: newId,
+        name: newMerchant.name,
+        category: newMerchant.category,
+        currentRate: newMerchant.currentRate,
+        minAmount: newMerchant.minAmount,
+        maxAmount: newMerchant.maxAmount,
+        monthlyVolume: newMerchant.monthlyVolume
+      }]);
+      setNewMerchant({
+        name: '',
+        category: '',
+        currentRate: 2.5,
+        minAmount: 0,
+        maxAmount: 10000,
+        monthlyVolume: 0
+      });
+      setShowAddMerchantModal(false);
+    }
+  };
+
+  const handleAddCategory = () => {
+    if (newCategory.category && newCategory.description) {
+      setCategoryRules([...categoryRules, {
+        category: newCategory.category,
+        baseRate: newCategory.baseRate,
+        volumeThreshold: newCategory.volumeThreshold,
+        discountRate: newCategory.discountRate,
+        description: newCategory.description
+      }]);
+      setNewCategory({
+        category: '',
+        baseRate: 2.5,
+        volumeThreshold: 50000,
+        discountRate: 2.2,
+        description: ''
+      });
+      setShowAddCategoryModal(false);
+    }
+  };
 
   const globalSettings = {
     defaultRate: 2.5,
@@ -160,7 +240,10 @@ const CommissionSettings: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-900">Commissioni per Merchant</h3>
-                <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center space-x-2">
+                <button 
+                  onClick={() => setShowAddMerchantModal(true)}
+                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center space-x-2"
+                >
                   <Plus className="w-5 h-5" />
                   <span>Aggiungi Regola</span>
                 </button>
@@ -236,7 +319,10 @@ const CommissionSettings: React.FC = () => {
             <div className="space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-gray-900">Regole per Categoria</h3>
-                <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center space-x-2">
+                <button 
+                  onClick={() => setShowAddCategoryModal(true)}
+                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center space-x-2"
+                >
                   <Plus className="w-5 h-5" />
                   <span>Nuova Categoria</span>
                 </button>
@@ -373,6 +459,197 @@ const CommissionSettings: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* Modal Aggiungi Merchant */}
+      {showAddMerchantModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Aggiungi Nuova Regola Merchant</h3>
+              <button 
+                onClick={() => setShowAddMerchantModal(false)}
+                className="p-2 text-gray-400 hover:text-gray-600 rounded-lg"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Nome Merchant</label>
+                <input
+                  type="text"
+                  value={newMerchant.name}
+                  onChange={(e) => setNewMerchant({...newMerchant, name: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Es. Damascus Electronics"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Categoria</label>
+                <select
+                  value={newMerchant.category}
+                  onChange={(e) => setNewMerchant({...newMerchant, category: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  <option value="">Seleziona categoria</option>
+                  <option value="Elettronica">Elettronica</option>
+                  <option value="Abbigliamento">Abbigliamento</option>
+                  <option value="Ristorazione">Ristorazione</option>
+                  <option value="Farmacia">Farmacia</option>
+                  <option value="Supermercato">Supermercato</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Commissione (%)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={newMerchant.currentRate}
+                  onChange={(e) => setNewMerchant({...newMerchant, currentRate: parseFloat(e.target.value)})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Importo Min (€)</label>
+                  <input
+                    type="number"
+                    value={newMerchant.minAmount}
+                    onChange={(e) => setNewMerchant({...newMerchant, minAmount: parseInt(e.target.value)})}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Importo Max (€)</label>
+                  <input
+                    type="number"
+                    value={newMerchant.maxAmount}
+                    onChange={(e) => setNewMerchant({...newMerchant, maxAmount: parseInt(e.target.value)})}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Volume Mensile (€)</label>
+                <input
+                  type="number"
+                  value={newMerchant.monthlyVolume}
+                  onChange={(e) => setNewMerchant({...newMerchant, monthlyVolume: parseInt(e.target.value)})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            
+            <div className="flex items-center justify-end space-x-3 mt-6">
+              <button
+                onClick={() => setShowAddMerchantModal(false)}
+                className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                Annulla
+              </button>
+              <button
+                onClick={handleAddMerchant}
+                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              >
+                Aggiungi
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal Aggiungi Categoria */}
+      {showAddCategoryModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-md mx-4">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-900">Aggiungi Nuova Categoria</h3>
+              <button 
+                onClick={() => setShowAddCategoryModal(false)}
+                className="p-2 text-gray-400 hover:text-gray-600 rounded-lg"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Nome Categoria</label>
+                <input
+                  type="text"
+                  value={newCategory.category}
+                  onChange={(e) => setNewCategory({...newCategory, category: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Es. Servizi Finanziari"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Descrizione</label>
+                <textarea
+                  value={newCategory.description}
+                  onChange={(e) => setNewCategory({...newCategory, description: e.target.value})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  rows={3}
+                  placeholder="Descrizione della categoria e delle sue caratteristiche"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Tariffa Base (%)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={newCategory.baseRate}
+                  onChange={(e) => setNewCategory({...newCategory, baseRate: parseFloat(e.target.value)})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Soglia Volume (€)</label>
+                <input
+                  type="number"
+                  value={newCategory.volumeThreshold}
+                  onChange={(e) => setNewCategory({...newCategory, volumeThreshold: parseInt(e.target.value)})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Tariffa Scontata (%)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={newCategory.discountRate}
+                  onChange={(e) => setNewCategory({...newCategory, discountRate: parseFloat(e.target.value)})}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+            </div>
+            
+            <div className="flex items-center justify-end space-x-3 mt-6">
+              <button
+                onClick={() => setShowAddCategoryModal(false)}
+                className="px-4 py-2 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50"
+              >
+                Annulla
+              </button>
+              <button
+                onClick={handleAddCategory}
+                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              >
+                Aggiungi
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

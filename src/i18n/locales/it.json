@@ -461,6 +461,72 @@
     "avgResponse": "Risposta Media",
     "lastUpdate": "Ultima analisi AI"
   },
+  "androidConfig": {
+    "title": "Configurazione App Android",
+    "description": "Gestisci le impostazioni dell'applicazione POS Android",
+    "appStatus": "Stato App",
+    "active": "Attiva",
+    "version": "Versione",
+    "build": "Build",
+    "connectedDevices": "Dispositivi Connessi",
+    "tabs": {
+      "general": "Generale",
+      "security": "Sicurezza",
+      "notifications": "Notifiche",
+      "appearance": "Aspetto",
+      "connectivity": "Connettività"
+    },
+    "general": {
+      "appName": "Nome Applicazione",
+      "version": "Versione",
+      "buildNumber": "Numero Build",
+      "packageName": "Nome Package",
+      "minSdkVersion": "Versione SDK Minima",
+      "targetSdkVersion": "Versione SDK Target",
+      "buildInfo": "Informazioni Build",
+      "buildInfoDesc": "Le modifiche alla versione e al numero di build richiedono una nuova compilazione dell'applicazione. Assicurati di testare tutte le funzionalità prima del rilascio."
+    },
+    "security": {
+      "biometricAuth": "Autenticazione Biometrica",
+      "pinLock": "Blocco PIN",
+      "dataEncryption": "Crittografia Dati",
+      "sessionTimeout": "Timeout Sessione (minuti)",
+      "certificatePinning": "Certificate Pinning",
+      "criticalSecurity": "Sicurezza Critica",
+      "securityWarning": "Le impostazioni di sicurezza influenzano direttamente la protezione dei dati dei pagamenti. Modificare solo se si comprendono le implicazioni di sicurezza."
+    },
+    "notifications": {
+      "pushNotifications": "Notifiche Push",
+      "transactionAlerts": "Avvisi Transazioni",
+      "systemAlerts": "Avvisi Sistema",
+      "sound": "Suoni",
+      "vibration": "Vibrazione"
+    },
+    "appearance": {
+      "theme": "Tema",
+      "light": "Chiaro",
+      "dark": "Scuro",
+      "auto": "Automatico",
+      "primaryColor": "Colore Primario",
+      "secondaryColor": "Colore Secondario",
+      "enableDarkMode": "Abilita Modalità Scura",
+      "customLogo": "Logo Personalizzato"
+    },
+    "connectivity": {
+      "apiEndpoint": "Endpoint API",
+      "offlineMode": "Modalità Offline",
+      "syncInterval": "Intervallo Sincronizzazione (minuti)",
+      "connectionTimeout": "Timeout Connessione"
+    },
+    "actions": {
+      "exportConfig": "Esporta Configurazione",
+      "importConfig": "Importa Configurazione",
+      "saveConfig": "Salva Configurazione",
+      "saving": "Salvataggio...",
+      "savedSuccess": "Salvato con successo",
+      "saveError": "Errore nel salvataggio"
+    }
+  },
   "merchant": {
     "panel": "Pannello Merchant",
     "newPaymentRequest": "Nuova Richiesta Pagamento",
